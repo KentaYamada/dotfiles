@@ -27,12 +27,6 @@ filetype plugin indent on
 NeoBundleCheck
 
 
-"HTMLの閉じタグを自動補完
-augroup vimrc
-    autocmd!
-    autocmd FileType html inoremap <buffer> </ </<C-x><C-o>
-augroup END
-
 "画面表示の設定
 set number
 set cursorline
@@ -74,10 +68,10 @@ set shiftwidth=4
 set encoding=utf-8
 set fileencoding=utf=8
 
-"HTMLの閉じタグ自動補完
-augroup MyHTML
-  autocmd!
-  autocmd FileType html inoremap <buffer> </ </<C-x><C-o>
+"HTMLの閉じタグを自動補完
+augroup vimrc
+    autocmd!
+    autocmd FileType html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 syntax on
