@@ -1,4 +1,5 @@
 set nocompatible
+syntax on
 
 """""""""""""
 "Setup plugin
@@ -74,4 +75,6 @@ augroup vimrc
     autocmd FileType html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
-syntax on
+"テンプレファイル読み込み
+autocmd BufNewFile *.html 0r $HOME/.vim/template/html_template.html
+autocmd BufNewFile *.py   0r $HOME/.vim/template/python_template.py
