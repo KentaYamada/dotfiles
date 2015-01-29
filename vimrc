@@ -78,3 +78,9 @@ augroup END
 "テンプレファイル読み込み
 autocmd BufNewFile *.html 0r $HOME/.vim/template/html_template.html
 autocmd BufNewFile *.py   0r $HOME/.vim/template/python_template.py
+
+syntax on
+
+"Color Scheme設定
+set background=dark
+colorscheme evening
