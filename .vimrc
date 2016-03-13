@@ -12,13 +12,13 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundleLazy 'davidhalter/jedi-vim', {
 \ 'autoload' : {
-\   'filetypes' : ['python'],
+\   'filetypes' : ['python', 'python3'],
 \ },
-\ 'disabled' : !has('python'),
+\ 'disabled' : !(has('python') || has('python3')),
 \ }
-NeoBundle 'Shougo/neocomplcache'
 
 "ここからプラグインを設定
 
@@ -86,53 +86,6 @@ autocmd BufNewFile *.py 0r ~/.vim/template/python_template.py
 syntax on
 
 "Color Scheme設定
-set background=dark
-"colorscheme evening
-colorscheme elflord
-
-"---------------------------------------------------
-"neocomplcacheの設定(neocompleteへ移行予定)
-"【参照元】
-"　https://github.com/Shougo/neocomplcache.vim
-"  qiita.com/hide/items/229ff9460e75426a2d07
-"---------------------------------------------------
-
-"Disable AutoComlPop.
-let g:acp_enableAtStartup = 0
-
-"Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-
-"Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-
-"Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-"Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
-
-"Plugin key-mappings.
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-
-"Recommended key-mappings.
-"<CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
-endfunction
-
-"<TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"<C-h>, <BS>: close popup and delte backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#smart_close_popup()
-inoremap <expr><C-e> neocomplcache#smart_close_popup()
-
-"----------------------------------------------------------------
+syntax enable
+set background=light
+colorscheme solarized
