@@ -92,6 +92,7 @@ set wrapscan   "最後尾まで検索を終えたら、先頭に移って検索�
 set backspace=indent,eol,start "バックスペースで各種消せるようにする
 set encoding=utf-8             "エンコード
 set fileencoding=utf-8         "ファイルエンコード
+set ambiwidth=double           "日本語のズレをなくす
 
 
 "検索／置換の設定
