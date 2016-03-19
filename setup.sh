@@ -10,9 +10,22 @@
 
 #シンボリックリンク作成
 #gitリポジトリは全て「~/git/」にて管理
+if [ ! -e ~/git/ ]; then
+    mkdir ~/git/
+fi
+
+cd ~/git
+
+# dotfiles ダウンロード
+git clone 'https://github.com/KentaYamada/dotfiles.git'
+
+if [ $? == 0 ]; then
+    mkdir ./bundle
+else
+    echo "git clone failed."
+    exit 1
+fi
 
 #ToDo:配列とループを使って実行できるようにする
 ln -sf ~/git/dotfiles/.vimrc ~/.vimrc
-
-#ディレクトリをシンボリックリンク作成した場合、Vimがちゃんと読める？
 ln -sf ~/git/dotfiles/.vim ~/.vim
