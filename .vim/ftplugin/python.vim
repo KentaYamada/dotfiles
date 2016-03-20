@@ -15,6 +15,11 @@ setlocal shiftwidth=4
 "入力補完の有効化
 setlocal omnifunc=jedi#completions
 
-"Python関連の設定
+"--------------
+"キーマップ設定
+
+" Python3 
 nnoremap <F5> :!python3 %<CR>
 
+" pudB(デバッガツール)
+nnoremap <F6> :!pudb3 %<CR>
