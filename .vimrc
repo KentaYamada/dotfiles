@@ -38,6 +38,17 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 \ 'disabled' : !(has('python') || has('python3')),
 \ }
 
+"ToDo:ビルド通っても補完できなかったので、とりあえずコメントアウト
+"C#補完プラグイン
+"NeoBundleLazy 'nosami/Omnisharp', {
+"\   'autoload': {'filetypes': ['cs']},
+"\   'build': {
+"\     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
+"\     'mac': 'xbuild server/OmniSharp.sln',
+"\     'unix': 'xbuild server/OmniSharp.sln',
+"\   },
+"\ }
+
 "ファイルエクスプローラー
 NeoBundle 'scrooloose/nerdtree'
 
@@ -89,10 +100,11 @@ set wrapscan   "最後尾まで検索を終えたら、先頭に移って検索�
 
 
 "ファイル編集関連
+set ambiwidth=double           "日本語のズレをなくす
 set backspace=indent,eol,start "バックスペースで各種消せるようにする
 set encoding=utf-8             "エンコード
 set fileencoding=utf-8         "ファイルエンコード
-set ambiwidth=double           "日本語のズレをなくす
+set fileencodings+=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,cp932 "ファイル読み込み時に合致した文字コードを指定する
 
 
 "検索／置換の設定
