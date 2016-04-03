@@ -4,7 +4,7 @@ if exists('b:did_ftplugin_jinja')
 endif
 let b:did_ftplugin_jinja = 1
 
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+setlocal expandtab
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal shiftwidth=2

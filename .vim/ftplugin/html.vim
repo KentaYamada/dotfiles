@@ -21,7 +21,7 @@ if has('mac')
   "  open -a Firefox
   "【Google Chrome】
   "  open /Applications/Google\ Chrome.app
-  nnoremap <F5> :!open /Applications/Google\ Chrome.app %
+  nnoremap <F5> :!open /Applications/Google\ Chrome.app %<CR>
 elseif has('win32')
   "Do something
 else
@@ -29,5 +29,5 @@ else
   "  firefox
   "【Google Chrome】
   "  google-chrome
-  nnoremap <F5> :!google-chrome %
+  nnoremap <F5> :!google-chrome %<CR>
 endif

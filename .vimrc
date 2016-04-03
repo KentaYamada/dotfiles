@@ -30,6 +30,9 @@ if !(has('win32') || has('mac'))
     NeoBundle 'altercation/vim-colors-solarized'
 endif
 
+"ファイルエクスプローラー
+NeoBundle 'scrooloose/nerdtree'
+
 "Python補完プラグイン
 NeoBundleLazy 'davidhalter/jedi-vim', {
 \ 'autoload' : {
@@ -49,8 +52,17 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 "\   },
 "\ }
 
-"ファイルエクスプローラー
-NeoBundle 'scrooloose/nerdtree'
+" C/C++補完
+NeoBundleLazy 'justmao945/vim-clang', {
+\ 'autoload': {'filetypes': ['c', 'cpp'],},
+\ }
+
+"Clang実行の確認
+"for i in range(6, 3, -1)
+"    if executable(printf('clang-3.%d', i))
+"        let g:clang_exec = ''
+"    endif
+"endfor
 
 "Required
 call neobundle#end()
