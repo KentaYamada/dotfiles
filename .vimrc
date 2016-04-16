@@ -146,6 +146,7 @@ set statusline=2
 let dic_line =  { 'dos': 'CRLF', 'unix': 'CR', 'mac': 'LF'}
 let f = &fileformat
 let s = ''
+
 if has_key(dic_line, f)
     let s = dic_line[f]
 else
@@ -153,7 +154,7 @@ else
 endif
 
 set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{s}]%=%c,%l%11p%%
-"set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{&ff}]%=%c,%l%11p%%
+
 "HTMLの閉じタグ自動補完
 augroup MyHTML
   autocmd!
