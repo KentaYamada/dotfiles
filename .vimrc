@@ -174,4 +174,6 @@ colorscheme elflord
 if !(has('win32') || has('mac')) 
     set background=light
     colorscheme solarized
+    set t_Co=16
+    let g:solarized_termtrans=256
 endif
