@@ -41,6 +41,11 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 \ 'disabled' : !(has('python') || has('python3')),
 \ }
 
+"-----------------------
+"JavaScript syntax color
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+
+
 "ToDo:ビルド通っても補完できなかったので、とりあえずコメントアウト
 "C#補完プラグイン
 "NeoBundleLazy 'nosami/Omnisharp', {
