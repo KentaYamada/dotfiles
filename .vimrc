@@ -177,8 +177,9 @@ colorscheme elflord
 
 "とりあえずLinuxの場合だけ
 if !(has('win32') || has('mac')) 
+    set term=screen-256color-bce
+    let g:solarized_termtrans=256
+    set t_Co=256
     set background=light
     colorscheme solarized
-    set t_Co=16
-    let g:solarized_termtrans=256
 endif
