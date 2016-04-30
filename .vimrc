@@ -41,22 +41,13 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 \ 'disabled' : !(has('python') || has('python3')),
 \ }
 
+
 "-----------------------
 "JavaScript syntax color
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
 
 
-"ToDo:ビルド通っても補完できなかったので、とりあえずコメントアウト
-"C#補完プラグイン
-"NeoBundleLazy 'nosami/Omnisharp', {
-"\   'autoload': {'filetypes': ['cs']},
-"\   'build': {
-"\     'windows': 'MSBuild.exe server/OmniSharp.sln /p:Platform="Any CPU"',
-"\     'mac': 'xbuild server/OmniSharp.sln',
-"\     'unix': 'xbuild server/OmniSharp.sln',
-"\   },
-"\ }
-
+"----------
 " C/C++補完
 NeoBundleLazy 'justmao945/vim-clang', {
 \ 'autoload': {'filetypes': ['c', 'cpp'],},
