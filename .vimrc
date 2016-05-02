@@ -60,6 +60,11 @@ NeoBundleLazy 'justmao945/vim-clang', {
 "    endif
 "endfor
 
+"--------------------------------------------
+" Debug Plugin(php, python, javascript etc...
+NeoBundle 'joonty/vdebug'
+
+
 "Required
 call neobundle#end()
 
