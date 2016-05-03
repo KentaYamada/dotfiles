@@ -73,7 +73,7 @@ filetype plugin indent on
 
 "If there are uninstalled bundles found on startup,
 "this will convenientle prompt you to install them.
-NeoBundleCheck
+"NeoBundleCheck
 
 "---------------
 "NERDTree設定
