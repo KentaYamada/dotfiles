@@ -79,7 +79,7 @@ filetype plugin indent on
 "NERDTree設定
 
 "ショートカットキー
-nnoremap <silent><C-e> :NERDTreeToggle<CR>  
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 "---------------
 
 
@@ -118,7 +118,8 @@ set backspace=indent,eol,start "バックスペースで各種消せるように
 set encoding=utf-8             "エンコード
 set fileencoding=utf-8         "ファイルエンコード
 set fileencodings+=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,cp932 "ファイル読み込み時に合致した文字コードを指定する
-
+"set list  "不可視文字を表示する
+"set listchars=tab:»-,trail:-
 
 "検索／置換の設定
 set incsearch
