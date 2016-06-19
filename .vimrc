@@ -53,12 +53,10 @@ NeoBundleLazy 'justmao945/vim-clang', {
 \ 'autoload': {'filetypes': ['c', 'cpp'],},
 \ }
 
-"Clang実行の確認
-"for i in range(6, 3, -1)
-"    if executable(printf('clang-3.%d', i))
-"        let g:clang_exec = ''
-"    endif
-"endfor
+"Clang設定
+let g:clang_c_options = '-std=c11'
+let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+
 
 "--------------------------------------------
 " Debug Plugin(php, python, javascript etc...
