@@ -54,6 +54,13 @@ NeoBundleLazy 'justmao945/vim-clang', {
 \ }
 
 "Clang設定
+
+if !(has('win32') || has('mac')) 
+    "Linuxの時はclang3.5
+    let g:clang_exec = 'clang-3.5'
+    let g:clang_format_exec = 'clang-format-3.5'
+end if
+
 let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 
