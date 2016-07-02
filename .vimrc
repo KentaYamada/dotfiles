@@ -2,12 +2,13 @@
 " My vimrc
 " Author:Kenta Yamada
 "--------------------
-
-
-
 syntax on
 set nocompatible "vi互換ではなく、vimのデフォルト設定にする
 
+
+"OS判別
+let g:IS_WINDOWS = has('win16') || has('win32') || has('win64')
+let g:IS_MAC = has('mac')
 
 
 "-----------
@@ -25,13 +26,50 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 "Required
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-if !(has('win32') || has('mac')) 
+if !(g:IS_WINDOWS || g:IS_MAC)
     "カラースキームプラグイン
     NeoBundle 'altercation/vim-colors-solarized'
 endif
 
-"ファイルエクスプローラー
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle "thinca/vim-quickrun"
+NeoBundle "osyo-manga/shabadou.vim"
+
+"----------------------
+"エラー箇所のハイライト
+NeoBundle "cohama/vim-hier"
+
+"" エラーを赤字の波線で
+execute "highlight qf_error_ucurl cterm=undercurl ctermfg=Red gui=undercurl guisp=Red"
+"let g:hier_highlight_group_qf  = "qf_error_ucurl"
+""警告を青字の波線で
+"execute "highlight qf_warning_ucurl cterm=undercurl ctermfg=Blue gui=undercurl guisp=Blue"
+"let g:hier_highlight_group_qfw = "qf_warning_ucurl"
+
+
+"-------------
+"Syntax checker
+NeoBundle "osyo-manga/vim-watchdogs"
+
+"書き込み後にsyntax checkを実行
+let g:watchdogs_check_BufWritePost_enable = 1
+
+"一定時間キー入力がなかった場合にsyntax checkを実行
+"buffer書き込み後、一度だけ行われる
+let g:watchdogs_check_CurorHold_enable = 1
+
+
+"--------------------------------------------
+" Debug Plugin(php, python, javascript etc...
+NeoBundle 'joonty/vdebug'
+
+
+NeoBundle "Shougo/vimproc", {
+\ 'build': {
+\   'mac': 'make',
+\   'linux': 'make',
+\ },
+\}
 
 "Python補完プラグイン
 NeoBundleLazy 'davidhalter/jedi-vim', {
@@ -54,8 +92,7 @@ NeoBundleLazy 'justmao945/vim-clang', {
 \ }
 
 "Clang設定
-
-if !(has('win32') || has('mac')) 
+if !(g:IS_WINDOWS || g:IS_MAC)
     "Linuxの時はclang3.5
     let g:clang_exec = 'clang-3.5'
     let g:clang_format_exec = 'clang-format-3.5'
@@ -65,9 +102,6 @@ let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 
 
-"--------------------------------------------
-" Debug Plugin(php, python, javascript etc...
-NeoBundle 'joonty/vdebug'
 
 
 "Required
