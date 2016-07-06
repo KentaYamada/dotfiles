@@ -39,14 +39,6 @@ NeoBundle "osyo-manga/shabadou.vim"
 "エラー箇所のハイライト
 NeoBundle "cohama/vim-hier"
 
-"" エラーを赤字の波線で
-execute "highlight qf_error_ucurl cterm=undercurl ctermfg=Red gui=undercurl guisp=Red"
-"let g:hier_highlight_group_qf  = "qf_error_ucurl"
-""警告を青字の波線で
-"execute "highlight qf_warning_ucurl cterm=undercurl ctermfg=Blue gui=undercurl guisp=Blue"
-"let g:hier_highlight_group_qfw = "qf_warning_ucurl"
-
-
 "-------------
 "Syntax checker
 NeoBundle "osyo-manga/vim-watchdogs"
