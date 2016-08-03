@@ -220,6 +220,7 @@ colorscheme elflord
 if !(has('win32') || has('mac')) 
     set term=screen-256color-bce
     let g:solarized_termtrans=256
-    set background=light
+    "set background=light
+    "set background=dark
     colorscheme solarized
 endif
