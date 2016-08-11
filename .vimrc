@@ -214,13 +214,7 @@ augroup END
 "Color Scheme設定
 syntax enable
 set t_Co=256
-colorscheme elflord
-
-"とりあえずLinuxの場合だけ
-if !(has('win32') || has('mac')) 
-    set term=screen-256color-bce
-    let g:solarized_termtrans=256
-    "set background=light
-    "set background=dark
-    colorscheme solarized
-endif
+set term=screen-256color-bce
+let g:solarized_termtrans=256
+set background=dark
+colorscheme solarized
