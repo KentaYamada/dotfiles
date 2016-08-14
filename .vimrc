@@ -132,7 +132,7 @@ set autoread   "外部でファイルに変更された場合は自動的に読�
 set confirm    "ファイルが保存されていない時は終了前に保存確認
 set nobackup   "ファイル保存時にバックアップファイルを作らない
 set noswapfile "ファイル編集中にスワップファイルを作らない
-set nobackup
+set nobackup   "ファイル保存時にバックアップファイルを作らない
 
 
 "検索/置換の設定
@@ -164,7 +164,7 @@ set wrapscan
 set autoindent   "
 set expandtab    "タブをスペースに変換する（⇄set noexpandtab）
 set shiftwidth=4 "シフトオペレータやautoindentで挿入される量
-set tabstop=4    "
+set tabstop=4    "画面上でタブ文字が占める幅
 
 
 "動作環境との統合関連の設定
@@ -172,7 +172,15 @@ set clipboard=unnamed,unnamedplus "OSのクリップボードをレジスタ指�
 set mouse=a "マウス入力受付
 set vb t_vb=
 set novisualbell
+set shellslash  "Windowsでもパス区切りを[/]にする
+set iminsert=2  "インサートモードから抜けると自動的にIMEをoffにする
 
+
+" コマンドライン設定
+
+" コマンドラインモードでTABキーによるファイル名補完を有効にする
+set wildmenu wildmode=list:longest,full 
+set history=1000  " コマンドラインの保存履歴数
 
 " ステータスラインにファイル情報を表示
 set statusline=2
