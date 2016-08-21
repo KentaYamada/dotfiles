@@ -173,7 +173,7 @@ set mouse=a "マウス入力受付
 set vb t_vb=
 set novisualbell
 set shellslash  "Windowsでもパス区切りを[/]にする
-set iminsert=2  "インサートモードから抜けると自動的にIMEをoffにする
+set iminsert=0  "インサートモードから抜けると自動的にIMEをoffにする
 
 
 " コマンドライン設定
