@@ -56,6 +56,15 @@ let g:watchdogs_check_CurorHold_enable = 1
 NeoBundle 'joonty/vdebug'
 
 
+" Markdown プレビュー
+NeoBundle 'kannokanno/previm'
+
+" 拡張子設定
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+
 NeoBundle "Shougo/vimproc", {
 \ 'build': {
 \   'mac': 'make',
@@ -92,7 +101,6 @@ endif
 
 let g:clang_c_options = '-std=c11'
 let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
-
 
 
 
@@ -149,8 +157,8 @@ set backspace=indent,eol,start "バックスペースで各種消せるように
 set encoding=utf-8             "エンコード
 set fileencoding=utf-8         "ファイルエンコード
 set fileencodings+=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,cp932 "ファイル読み込み時に合致した文字コードを指定する
-"set list  "不可視文字を表示する
-"set listchars=tab:»-,trail:-
+set list  "不可視文字を表示する
+set listchars=tab:>-,trail:-,nbsp:%
 
 "検索／置換の設定
 set incsearch
