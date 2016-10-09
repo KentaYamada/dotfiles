@@ -14,6 +14,8 @@ let g:IS_MAC = has('mac')
 "-----------
 "NeoBundle
 "-----------
+filetype plugin indent off  " bundle設定のためoffに
+
 if has('vim_starting')
     "Neobundleのパスを指定
     set runtimepath+=~/.vim/bundle/neobundle.vim/
