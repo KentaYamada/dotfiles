@@ -48,24 +48,24 @@ NeoBundle "osyo-manga/vim-watchdogs"
 "書き込み後にsyntax checkを実行
 let g:watchdogs_check_BufWritePost_enable = 1
 
+" filetype別に設定
+"let g:watchdogs_check_BufWritePost_enables = {
+"\ "cpp": 1
+"\ "cs": 0
+"\}
+
+
 "一定時間キー入力がなかった場合にsyntax checkを実行
 "buffer書き込み後、一度だけ行われる
 let g:watchdogs_check_CurorHold_enable = 1
 
+"let g:watchdogs_check_CurorHold_enables = {
+"\ "cpp": 1
+"\ "cs": 0
+"\}
 
-"--------------------------------------------
-" Debug Plugin(php, python, javascript etc...
-NeoBundle 'joonty/vdebug'
-
-
-" Markdown プレビュー
-NeoBundle 'kannokanno/previm'
-
-" 拡張子設定
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
+" :wq実行時にsyntax checkしないようにする
+let g:watchdogs_check_BufWritePost_enable_on_wq = 0
 
 NeoBundle "Shougo/vimproc", {
 \ 'build': {
