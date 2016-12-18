@@ -55,7 +55,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle "dannyob/quickfixstatus"
+NeoBundle "dannyob/quickfixstatus"
 NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle 'scrooloose/nerdtree'
@@ -242,6 +242,7 @@ let g:quickrun_config = {
 " vimprocの更新時間の設定
 let g:quickrun_config["watchdogs_checker/_"] = {
             \ "outputter/quickrun/open_cmd": "",
+            \ "hook/close_quickfix/enable_exit": 1,
             \ "runner/vimproc/updatetime": 40,
             \ }
 
