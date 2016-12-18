@@ -1,21 +1,47 @@
-"--------------------
-" My vimrc
-" Author:Kenta Yamada
-"--------------------
-syntax on
-set nocompatible "vi互換ではなく、vimのデフォルト設定にする
+"
+" vimrc
+" Created by Kenta Yamada on 2015
+"
+
+" --- 初期化 ---
+autocmd!
+
+filetype plugin indent off
+
+set nocompatible
+
+syntax off
 
 
-"OS判別
+" --- 定数 ---
 let g:IS_WINDOWS = has('win16') || has('win32') || has('win64')
 let g:IS_MAC = has('mac')
 
 
-"-----------
-"NeoBundle
-"-----------
-filetype plugin indent off  " bundle設定のためoffに
+" --- Bram氏の提供する設定を無効化(Kaoriya版利用時) ---
+let g:no_vimrc_example = 1
 
+
+" --- Kaoriya verにデフォルトで入っているプラグイン群を無効化 ---
+if has('kaoriya')
+    " $VIM/plugins/kaoriya/autodate.vim
+    let plugin_autodate_disable = 1
+
+    " $VIM/plugins/kaoriya/hz_ja.vim
+    let plugin_hz_ja_disable = 1
+
+    "$VIM/plugins/kaoriya/scrnmode.vim
+    let plugin_scrmode_disable = 1
+
+    "$VIM/plugins/kaoriya/verifyenc.vim
+    let plugin_verfyenc_disable = 1
+
+    "$VIM/plugins/kaoriya/dicwin.vim
+    let plugin_dicwin_disable = 1
+endif
+
+
+" --- NeoBundle ---
 if has('vim_starting')
     "Neobundleのパスを指定
     set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -28,106 +54,73 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 "Required
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-if !(g:IS_WINDOWS || g:IS_MAC)
-    "カラースキームプラグイン
-    NeoBundle 'altercation/vim-colors-solarized'
-endif
-
+NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle "dannyob/quickfixstatus"
+NeoBundle "osyo-manga/shabadou.vim"
+NeoBundle "osyo-manga/vim-watchdogs"
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle "thinca/vim-quickrun"
-NeoBundle "osyo-manga/shabadou.vim"
-
-"----------------------
-"エラー箇所のハイライト
-NeoBundle "cohama/vim-hier"
-
-"-------------
-"Syntax checker
-NeoBundle "osyo-manga/vim-watchdogs"
-
-"書き込み後にsyntax checkを実行
-let g:watchdogs_check_BufWritePost_enable = 1
-
-" filetype別に設定
-"let g:watchdogs_check_BufWritePost_enables = {
-"\ "cpp": 1
-"\ "cs": 0
-"\}
-
-
-"一定時間キー入力がなかった場合にsyntax checkを実行
-"buffer書き込み後、一度だけ行われる
-let g:watchdogs_check_CurorHold_enable = 1
-
-"let g:watchdogs_check_CurorHold_enables = {
-"\ "cpp": 1
-"\ "cs": 0
-"\}
-
-" :wq実行時にsyntax checkしないようにする
-let g:watchdogs_check_BufWritePost_enable_on_wq = 0
 
 NeoBundle "Shougo/vimproc", {
-\ 'build': {
-\   'mac': 'make',
-\   'linux': 'make',
-\ },
-\}
+            \ 'build': {'mac': 'make', 'linux': 'make'},
+            \}
 
-"Python補完プラグイン
+"エラー箇所のハイライティング
+NeoBundleLazy "cohama/vim-hier", {
+            \ 'disabled': !has('gui_running'),
+            \ }
+
+"Python
 NeoBundleLazy 'davidhalter/jedi-vim', {
-\ 'autoload' : {
-\   'filetypes' : ['python', 'python3'],
-\ },
-\ 'disabled' : !(has('python') || has('python3')),
-\ }
+            \ 'autoload' : {
+            \   'filetypes' : ['python', 'python3', 'djangohtml'],
+            \ },
+            \ 'disabled' : !(has('python') || has('python3')),
+            \ }
 
-
-"-----------------------
-"JavaScript syntax color
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
-
-
-"----------
-" C/C++補完
+"C/C++
 NeoBundleLazy 'justmao945/vim-clang', {
-\ 'autoload': {'filetypes': ['c', 'cpp'],},
-\ }
+            \ 'autoload': {'filetypes': ['c', 'cpp'],},
+            \ }
 
-"Clang設定
-if !(g:IS_WINDOWS || g:IS_MAC)
-    "Linuxの時はclang3.5
-    let g:clang_exec = 'clang-3.5'
-    let g:clang_format_exec = 'clang-format-3.5'
+"C#
+if has('python3')
+    NeoBundleLazy 'svermeulen/omnisharp-vim', 'Python3', {
+                \ 'autoload': { 'filetypes': ['cs'], },
+                \ 'build': { 'windows': 'msbuild server/OmniSharp.sln',
+                \            'mac':     'xbuild server/OmniSharp.sln',
+                \            'unix':    'xbuild server/OmniSharp.sln',
+                \ },
+                \ }
+else
+    NeoBundleLazy 'OmniSharp/omnisharp-vim' {
+                \ 'autoload': { 'filetypes': ['cs'], },
+                \ 'build': { 'windows': 'msbuild server/OmniSharp.sln',
+                \            'mac':     'xbuild server/OmniSharp.sln',
+                \            'unix':    'xbuild server/OmniSharp.sln',
+                \ },
+                \ }
 endif
-
-let g:clang_c_options = '-std=c11'
-let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
 
 
 
 "Required
 call neobundle#end()
 
-"Required
+
 filetype plugin indent on
-
-"If there are uninstalled bundles found on startup,
-"this will convenientle prompt you to install them.
-"NeoBundleCheck
-
-"---------------
-"NERDTree設定
-
-"ショートカットキー
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-"---------------
+syntax enable
 
 
-"---------------
-" 一般設定
+" --- 基本設定 ---
+"カラースキーマ
+set t_Co=256
+set term=screen-256color-bce
+let g:solarized_termtrans=256
+set background=dark
+colorscheme solarized
 
-"画面表示の設定
+"画面表示
 set number
 set cursorline
 set laststatus=2
@@ -136,48 +129,46 @@ set showmatch
 set helpheight=999
 set ruler
 
-
-"ファイル処理関連の設定
+"ファイル処理
 set autoread   "外部でファイルに変更された場合は自動的に読み直す
 set confirm    "ファイルが保存されていない時は終了前に保存確認
 set nobackup   "ファイル保存時にバックアップファイルを作らない
 set noswapfile "ファイル編集中にスワップファイルを作らない
-set nobackup   "ファイル保存時にバックアップファイルを作らない
+set noundofile "ファイル保存時にバックアップファイルを作らない
 
+"ファイル編集
+set ambiwidth=double           "日本語のズレをなくす
+set backspace=indent,eol,start "バックスペースで各種消せるようにする
+set list  "不可視文字を表示する
+set listchars=tab:>-,trail:-,nbsp:%
+set fileencodings+=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,cp932 "ファイル読み込み時に合致した文字コードを指定する
 
-"検索/置換の設定
+"検索・置換
 set hlsearch   "検索文字列をハイライト
 set ignorecase "大文字、小文字を区別しない
 set incsearch  "インクリメンタルサーチを行う
 set smartcase  "大文字、小文字が混在した言葉で検索した場合のみ、区別して検索する
 set wrapscan   "最後尾まで検索を終えたら、先頭に移って検索する
 
-
-"ファイル編集関連
-set ambiwidth=double           "日本語のズレをなくす
-set backspace=indent,eol,start "バックスペースで各種消せるようにする
-set encoding=utf-8             "エンコード
-set fileencoding=utf-8         "ファイルエンコード
-set fileencodings+=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,cp932 "ファイル読み込み時に合致した文字コードを指定する
-set list  "不可視文字を表示する
-set listchars=tab:>-,trail:-,nbsp:%
-
-"検索／置換の設定
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-set wrapscan
-
-
-"タブ/インデントの設定
-set autoindent   "
-set expandtab    "タブをスペースに変換する（⇄set noexpandtab）
+"タブ・インデント(デフォルト)
+"Info: filetypeごとの設定は個別に設定する
+set autoindent   "改行時に前の行のインデントを継続する
+set expandtab    "タブをスペースに変換する（<->set noexpandtab）
 set shiftwidth=4 "シフトオペレータやautoindentで挿入される量
+set smartindent  "改行時に入力された行の末尾に合わせてインデントを増減する
 set tabstop=4    "画面上でタブ文字が占める幅
 
+"文字コード
+if IS_WINDOWS
+    set encoding=cp932      "エンコード
+    set fileencoding=cp932  "ファイルエンコード
+    set ff=dos              "改行コード(CRLF)
+else
+    set encoding=utf-8     "エンコード
+    set fileencoding=utf-8 "ファイルエンコード
+endif
 
-"動作環境との統合関連の設定
+"動作環境との統合関連
 set clipboard=unnamed,unnamedplus "OSのクリップボードをレジスタ指定無しでヤンク、プットできるようにする
 set mouse=a "マウス入力受付
 set vb t_vb=
@@ -185,14 +176,12 @@ set novisualbell
 set shellslash  "Windowsでもパス区切りを[/]にする
 set iminsert=0  "インサートモードから抜けると自動的にIMEをoffにする
 
+"コマンドライン
+set wildmenu wildmode=list:longest,full "コマンドラインモードでTABキーによるファイル名補完を有効にする
+set history=1000  "コマンドラインの保存履歴数
 
-" コマンドライン設定
-
-" コマンドラインモードでTABキーによるファイル名補完を有効にする
-set wildmenu wildmode=list:longest,full 
-set history=1000  " コマンドラインの保存履歴数
-
-" ステータスラインにファイル情報を表示
+"ステータスライン
+"ステータスラインにファイル情報を表示
 set statusline=2
 let dic_line =  { 'dos': 'CRLF', 'unix': 'CR', 'mac': 'LF'}
 let f = &fileformat
@@ -206,33 +195,88 @@ endif
 
 set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{s}]%=%c,%l%11p%%
 
-"HTMLの閉じタグ自動補完
-augroup MyHTML
-  autocmd!
-  autocmd FileType html inoremap <buffer> </ </<C-x><C-o>
-augroup END
-
-" テンプレファイル読み込み
-autocmd BufNewFile *.html 0r ~/.vim/template/html_template.html
-autocmd BufNewFile *.py 0r ~/.vim/template/python_template.py
-
-" バイナリ編集(xxd)モード（vim -b での起動、もしくは *.bin ファイルを開くと発動します）
-" 参考URL:ずんWiki<http://www.kawaz.jp/pukiwiki/?vim#notefoot_1>
-augroup BinaryXXD
-  autocmd!
-  autocmd BufReadPre  *.bin let &binary =1
-  autocmd BufReadPost * if &binary | silent %!xxd -g 1
-  autocmd BufReadPost * set ft=xxd | endif
-  autocmd BufWritePre * if &binary | %!xxd -r | endif
-  autocmd BufWritePost * if &binary | silent %!xxd -g 1
-  autocmd BufWritePost * set nomod | endif
-augroup END
+" --- キーマッピング ---
 
 
-"Color Scheme設定
-syntax enable
-set t_Co=256
-set term=screen-256color-bce
-let g:solarized_termtrans=256
-set background=dark
-colorscheme solarized
+" --- 各種プラグイン設定 ---
+" quick-run {{{
+
+let g:quickrun_config = {}
+
+"}}}
+
+" watchdogs-vim {{{
+" ファイル書き込み後にシンタックスチェックを行う
+" filetype別に設定が可能
+" 0: 無効/1: 有効
+let g:watchdogs_check_BufWritePost_enables = {
+            \ "c": 1,
+            \ "cpp": 1,
+            \ "cs": 0,
+            \ "python": 1,
+            \ }
+
+" 一定時間キー入力がなかった場合にシンタックスチェックを行う
+" filetype別に設定が可能
+" 0: 無効/1: 有効
+let g:watchdogs_check_CursorHold_enables = {
+            \ "c": 1,
+            \ "cpp": 1,
+            \ "cs": 0,
+            \ "python": 1,
+            \ }
+
+" シンタックスチェックツール設定
+let g:quickrun_config = {
+            \ "watchdogs_checker/g++": {
+            \   "cmdopt": "-Wall"
+            \   },
+            \ "watchdogs_checker/clang++": {
+            \   "cmdopt": "-Wall",
+            \   },
+            \ "watchdogs_checker/flake8": {
+            \   },
+            \ }
+
+" quickfixウィンドウを開かないようにする
+" vimprocの更新時間の設定
+let g:quickrun_config["watchdogs_checker/_"] = {
+            \ "outputter/quickrun/open_cmd": "",
+            \ "runner/vimproc/updatetime": 40,
+            \ }
+
+" :wq実行時にsyntax checkしないようにする
+let g:watchdogs_check_BufWritePost_enable_on_wq = 0
+
+" watchdogs.vimの設定を追加
+call watchdogs#setup(g:quickrun_config)
+
+"}}}
+
+
+" vim-clang {{{
+let g:clang_auto = 1 "neocomplete等と連携する場合は0を設定すること
+let clang_targets = ['clang-3.6', 'clang-3.5', 'clang-3.4', 'clang']
+let clang_formats = ['clang-format-3.6', 'clang-format-3.5', 'clang-format-3.4', 'clang-format']
+for target in clang_targets
+    if executable(target)
+        let g:clang_exec = target
+    endif
+endfor
+for target in clang_formats
+    if executable(target)
+        let g:clang_format_exec = target
+    endif
+endfor
+
+"}}}
+
+
+" NERDTree {{{
+" 隠しファイルを表示
+let NERDTreeShowHidden = 1
+
+" ショートカットキー
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" }}}
