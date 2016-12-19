@@ -86,15 +86,15 @@ NeoBundleLazy 'justmao945/vim-clang', {
 "C#
 if has('python3')
     NeoBundleLazy 'svermeulen/omnisharp-vim', 'Python3', {
-                \ 'autoload': { 'filetypes': ['cs'], },
+                \ 'autoload': { 'filetypes': ['cs',], },
                 \ 'build': { 'windows': 'msbuild server/OmniSharp.sln',
                 \            'mac':     'xbuild server/OmniSharp.sln',
                 \            'unix':    'xbuild server/OmniSharp.sln',
                 \ },
                 \ }
 else
-    NeoBundleLazy 'OmniSharp/omnisharp-vim' {
-                \ 'autoload': { 'filetypes': ['cs'], },
+    NeoBundleLazy 'OmniSharp/omnisharp-vim', {
+                \ 'autoload': { 'filetypes': ['cs',], },
                 \ 'build': { 'windows': 'msbuild server/OmniSharp.sln',
                 \            'mac':     'xbuild server/OmniSharp.sln',
                 \            'unix':    'xbuild server/OmniSharp.sln',
