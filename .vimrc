@@ -1,6 +1,6 @@
 "
-" vimrc
-" Created by Kenta Yamada on 2015
+" My vimrc
+" Created by Kenta Yamada since 2015
 "
 
 " --- 初期化 ---
