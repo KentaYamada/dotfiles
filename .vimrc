@@ -198,6 +198,16 @@ set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{s}]%=%c,%l%11p%%
 " --- キーマッピング ---
 
 
+" --- オートコマンド ---
+" markdown {{{
+augroup MyMarkdown
+  autocmd!
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+augroup END
+
+"}}}
+
+
 " --- 各種プラグイン設定 ---
 " quick-run {{{
 
@@ -281,3 +291,5 @@ let NERDTreeShowHidden = 1
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " }}}
+
+
