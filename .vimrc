@@ -1,6 +1,7 @@
 "
 " My vimrc
-" Created by Kenta Yamada since 2015
+" Written by Kenta Yamada since 2015
+" GitHub [https://github.com/KentaYamada]
 "
 
 " --- 初期化 ---
@@ -183,7 +184,7 @@ set history=1000  "コマンドラインの保存履歴数
 "ステータスライン
 "ステータスラインにファイル情報を表示
 set statusline=2
-let dic_line =  { 'dos': 'CRLF', 'unix': 'CR', 'mac': 'LF'}
+let dic_line =  { 'dos': 'CRLF', 'unix': 'CR', 'mac': 'LF' }
 let f = &fileformat
 let s = ''
 
@@ -196,16 +197,38 @@ endif
 set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{s}]%=%c,%l%11p%%
 
 " --- キーマッピング ---
+" <ESC>連打で検索後のハイライトを消す
+nnoremap <silent><ESC><ESC> :noh<CR>
 
 
 " --- オートコマンド ---
+" templates {{{
+augroup MyTemplates
+    autocmd!
+    autocmd BufNewFile *.cs   0r $HOME/.vim/template/template.cs
+    autocmd BufNewFile *.js   0r $HOME/.vim/template/template.js
+    autocmd BufNewFile *.json 0r $HOME/.vim/template/template.json
+    autocmd BufNewFile *.html 0r $HOME/.vim/template/template.html
+    autocmd BufNewFile *php   0r $HOME/.vim/template/template.php
+    autocmd BufNewFile *.py   0r $HOME/.vim/template/template.py
+    autocmd BufNewFile *.xml  0r $HOME/.vim/template/template.xml
+augroup END
+" }}}
+
 " markdown {{{
 augroup MyMarkdown
   autocmd!
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
 augroup END
-
 "}}}
+
+"  閉じタグ {{{
+augroup AutoCloseTag
+    autocmd!
+    autocmd Filetype html inoremap <buffer></ </<C-x><C-o>
+    autocmd Filetype xml inoremap <buffer></ </<C-x><C-o>
+augroup END
+" }}}
 
 
 " --- 各種プラグイン設定 ---
