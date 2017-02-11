@@ -226,6 +226,7 @@ augroup END
 augroup AutoCloseTag
     autocmd!
     autocmd Filetype html inoremap <buffer></ </<C-x><C-o>
+    autocmd Filetype htmldjango inoremap <buffer></ </<C-x><C-o>
     autocmd Filetype xml inoremap <buffer></ </<C-x><C-o>
 augroup END
 " }}}
