@@ -18,8 +18,12 @@ setlocal omnifunc=jedi#completions
 "--------------
 "キーマップ設定
 
-" Python3 
-nnoremap <F5> :!python3 %<CR>
+" Run Python
+if has('python3')
+    nnoremap <F5> :!python3 %<CR>
+else
+    nnoremap <F5> :!python %<CR>
+endif
 
 " pudB(デバッガツール)
 nnoremap <F6> :!pudb3 %<CR>
