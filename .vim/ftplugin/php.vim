@@ -13,8 +13,10 @@ setlocal expandtab
 setlocal shiftwidth=4
 
 "Syntacs check
-augroup MyPhP
-    autocmd!
-    autocmd FileType php set makeprg=php\ -I\ %
-    autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
-augroup END
+if has('php')
+    augroup MyPhP
+        autocmd!
+        autocmd FileType php set makeprg=php\ -I\ %
+        autocmd BufWritePost *.php silent make | if len(getqflist()) != 1 | copen | else | cclose | endif
+    augroup END
+endif
