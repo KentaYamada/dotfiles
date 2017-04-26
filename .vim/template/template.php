@@ -1,4 +1,4 @@
-<? php
+<?php
 
 //
 // Write module summary.
