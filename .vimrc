@@ -1,29 +1,28 @@
 "
 " My vimrc
-" Written by Kenta Yamada since 2015
-" GitHub [https://github.com/KentaYamada]
+" Created by Kenta Yamada
+"
+" Required.
+" 1. Install Git.
+" 2. Clone Repository [https://github.com/kentayamada/dotfiles.git]
+" 3. Setup script(OSX or Ubuntu)
 "
 
-" --- 初期化 ---
-autocmd!
-
-filetype plugin indent off
-
-set nocompatible
-
-syntax off
-
-
-" --- 定数 ---
+" --- Constants ---
 let g:IS_WINDOWS = has('win16') || has('win32') || has('win64')
 let g:IS_MAC = has('mac')
 
 
-" --- Bram氏の提供する設定を無効化(Kaoriya版利用時) ---
+" --- Initialize ---
+autocmd!
+filetype plugin indent off
+set nocompatible
+syntax off
+
+" Bram氏の提供する設定を無効化(Kaoriya版利用時)
 let g:no_vimrc_example = 1
 
-
-" --- Kaoriya verにデフォルトで入っているプラグイン群を無効化 ---
+" Kaoriya版にデフォルトで入っているプラグイン群を無効化
 if has('kaoriya')
     " $VIM/plugins/kaoriya/autodate.vim
     let plugin_autodate_disable = 1
@@ -41,20 +40,13 @@ if has('kaoriya')
     let plugin_dicwin_disable = 1
 endif
 
-
-" --- NeoBundle ---
+" -- Plugins --
 if has('vim_starting')
     "Neobundleのパスを指定
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-
-"Required
 call neobundle#begin(expand('~/.vim/bundle/'))
-
-"Let NeoBundle manage NeoBundle
-"Required
 NeoBundleFetch 'Shougo/neobundle.vim'
-
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle "dannyob/quickfixstatus"
 NeoBundle "osyo-manga/shabadou.vim"
@@ -65,11 +57,6 @@ NeoBundle "thinca/vim-quickrun"
 NeoBundle "Shougo/vimproc", {
             \ 'build': {'mac': 'make', 'linux': 'make'},
             \}
-
-"エラー箇所のハイライティング
-NeoBundleLazy "cohama/vim-hier", {
-            \ 'disabled': !has('gui_running'),
-            \ }
 
 "Python
 NeoBundleLazy 'davidhalter/jedi-vim', {
@@ -84,44 +71,171 @@ NeoBundleLazy 'justmao945/vim-clang', {
             \ 'autoload': {'filetypes': ['c', 'cpp'],},
             \ }
 
-"C#
-if has('python3')
-    NeoBundleLazy 'svermeulen/omnisharp-vim', 'Python3', {
-                \ 'autoload': { 'filetypes': ['cs',], },
-                \ 'build': { 'windows': 'msbuild server/OmniSharp.sln',
-                \            'mac':     'xbuild server/OmniSharp.sln',
-                \            'unix':    'xbuild server/OmniSharp.sln',
-                \ },
-                \ }
-else
-    NeoBundleLazy 'OmniSharp/omnisharp-vim', {
-                \ 'autoload': { 'filetypes': ['cs',], },
-                \ 'build': { 'windows': 'msbuild server/OmniSharp.sln',
-                \            'mac':     'xbuild server/OmniSharp.sln',
-                \            'unix':    'xbuild server/OmniSharp.sln',
-                \ },
-                \ }
-endif
-
-
-
 "Required
 call neobundle#end()
-
+" Dein.vim {{{
+"if &compatible
+"  set nocompatible               " Be iMproved
+"endif
+"
+"" Required:
+"set runtimepath+=/Users/kenta/.vim/bundle//repos/github.com/Shougo/dein.vim
+"
+"" Required:
+"if dein#load_state('/Users/kenta/.vim/bundle/')
+"  call dein#begin('/Users/kenta/.vim/bundle/')
+"
+"  " Let dein manage dein
+"  " Required:
+"  call dein#add('/Users/kenta/.vim/bundle//repos/github.com/Shougo/dein.vim')
+"
+"  " Add or remove your plugins here:
+"  call dein#add('Shougo/neosnippet.vim')
+"  call dein#add('Shougo/neosnippet-snippets')
+"
+"  " You can specify revision/branch/tag.
+"  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+"
+"  " Required:
+"  call dein#end()
+"  call dein#save_state()
+"endif
+"
+"" If you want to install not installed plugins on startup.
+"if has('vim_starting') && dein#check_install()
+"  call dein#install()
+"endif
 
 filetype plugin indent on
 syntax enable
 
+" }}}
 
-" --- 基本設定 ---
-"カラースキーマ
-set t_Co=256
-set term=screen-256color-bce
-let g:solarized_termtrans=256
-set background=dark
-colorscheme solarized
+" watchdogs.vim {{{
+" Referenc: https://github.com/osyo-manga/vim-watchdogs/blob/master/doc/watchdogs.jax]
+" 初期化
+if !exists('g:quickrun_config')
+    let g:quickrun_config = {}
+endif
 
-"画面表示
+
+" filetype別シンタックスチェック設定
+" 0: 無効/1: 有効
+let g:watchdogs_check_BufWritePost_enables = {
+\       'c'          : 1,
+\       'cpp'        : 1,
+\       'cs'         : 0,
+\       'javascript' : 1,
+\       'python'     : 1,
+\       'php'        : 1,
+\       'sh'         : 1
+\}
+
+" 一定期間キー入力がなかった場合にチェックを実行
+let g:watchdogs_checker_CursorHold_enables = {
+\       'c'          : 1,
+\       'cpp'        : 1,
+\       'cs'         : 0,
+\       'javascript' : 1,
+\       'python'     : 1,
+\       'php'        : 1,
+\       'sh'         : 1
+\}
+
+" 保存して終了した場合にシンタックスチェックを無効化
+let g:watchdogs_check_BufWritePost_enable_on_wq = 0
+
+" シンタックスチェック設定
+" Note: quickrunの設定に依存
+let g:quickrun_config = {
+\  'watchdogs_checker/g++': {
+\    'cmdopt': '-Wall -Werror'
+\  },
+\}
+
+" watchdogs全体設定
+" 1. シンタックスチェック実行時にquickrunウィンドウを開かせない
+" 2. vimprocの更新時間設定
+let g:quickrun_config['watchdogs_checker/_'] = {
+\       'outputter/quickfix/open_cmd'    : '',
+\       'hook/close_quickfix/enable_exit': 1,
+\       'runner/vimproc/updatetime'      : 40
+\}
+
+" Require: watchdogs.vimへ設定の追加
+call watchdogs#setup(g:quickrun_config)
+" }}}
+
+
+" --- Basic Settings ---
+" File edit
+" 外部でファイルに変更された場合は自動的に読み直す
+set autoread
+
+" ファイルが保存されていない時は終了前に保存確認
+set confirm
+
+" 各種バックアップファイル無効化
+" --> *~ *.swp *.un
+set nobackup
+set noswapfile
+set noundofile
+
+" 日本語のズレをなくす
+set ambiwidth=double
+
+" バックスペースで各種消せるようにする
+set backspace=indent,eol,start
+
+" 不可視文字の表示
+set list
+set listchars=tab:>-,trail:-,nbsp:%
+
+" 検索ワードをハイライト
+set hlsearch
+
+" 大文字、小文字を区別しない
+set ignorecase
+
+" インクリメンタルサーチ
+set incsearch
+
+" 大文字、小文字が混在した言葉で検索した場合のみ、区別して検索する
+set smartcase
+
+" 最後尾まで検索を終えたら、先頭に移って検索する
+set wrapscan
+
+" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings+=utf-8,euc-jp,cp932,iso-2022-jp
+
+" Widows CLI対応
+if IS_WINDOWS
+    set encoding=cp932
+    set fileencoding=cp932
+    set ff=dos
+endif
+
+" Tab/Indent
+" Note: filetype設定は必要に応じて行う
+"改行時に前の行のインデントを継続する
+set autoindent
+
+"タブをスペースに変換する（<->set noexpandtab）
+set expandtab
+
+"シフトオペレータやautoindentで挿入される量
+set shiftwidth=4
+
+"改行時に入力された行の末尾に合わせてインデントを増減する
+set smartindent
+
+"画面上でタブ文字が占める幅
+set tabstop=4
+
+" Display
 set number
 set cursorline
 set laststatus=2
@@ -130,79 +244,51 @@ set showmatch
 set helpheight=999
 set ruler
 
-"ファイル処理
-set autoread   "外部でファイルに変更された場合は自動的に読み直す
-set confirm    "ファイルが保存されていない時は終了前に保存確認
-set nobackup   "ファイル保存時にバックアップファイルを作らない
-set noswapfile "ファイル編集中にスワップファイルを作らない
-set noundofile "ファイル保存時にバックアップファイルを作らない
-
-"ファイル編集
-set ambiwidth=double           "日本語のズレをなくす
-set backspace=indent,eol,start "バックスペースで各種消せるようにする
-set list  "不可視文字を表示する
-set listchars=tab:>-,trail:-,nbsp:%
-set fileencodings+=utf-8,euc-jp,iso-2022-jp,ucs-2le,ucs-2,cp932 "ファイル読み込み時に合致した文字コードを指定する
-
-"検索・置換
-set hlsearch   "検索文字列をハイライト
-set ignorecase "大文字、小文字を区別しない
-set incsearch  "インクリメンタルサーチを行う
-set smartcase  "大文字、小文字が混在した言葉で検索した場合のみ、区別して検索する
-set wrapscan   "最後尾まで検索を終えたら、先頭に移って検索する
-
-"タブ・インデント(デフォルト)
-"Info: filetypeごとの設定は個別に設定する
-set autoindent   "改行時に前の行のインデントを継続する
-set expandtab    "タブをスペースに変換する（<->set noexpandtab）
-set shiftwidth=4 "シフトオペレータやautoindentで挿入される量
-set smartindent  "改行時に入力された行の末尾に合わせてインデントを増減する
-set tabstop=4    "画面上でタブ文字が占める幅
-
-"文字コード
-if IS_WINDOWS
-    set encoding=cp932      "エンコード
-    set fileencoding=cp932  "ファイルエンコード
-    set ff=dos              "改行コード(CRLF)
-else
-    set encoding=utf-8     "エンコード
-    set fileencoding=utf-8 "ファイルエンコード
-endif
-
-"動作環境との統合関連
-set clipboard=unnamed,unnamedplus "OSのクリップボードをレジスタ指定無しでヤンク、プットできるようにする
-set mouse=a "マウス入力受付
-set vb t_vb=
-set novisualbell
-set shellslash  "Windowsでもパス区切りを[/]にする
-set iminsert=0  "インサートモードから抜けると自動的にIMEをoffにする
-
-"コマンドライン
-set wildmenu wildmode=list:longest,full "コマンドラインモードでTABキーによるファイル名補完を有効にする
-set history=1000  "コマンドラインの保存履歴数
-
-"ステータスライン
-"ステータスラインにファイル情報を表示
+" Statusline
+" ステータスラインにファイル情報を表示
 set statusline=2
 let dic_line =  { 'dos': 'CRLF', 'unix': 'CR', 'mac': 'LF' }
 let f = &fileformat
-let s = ''
-
-if has_key(dic_line, f)
-    let s = dic_line[f]
-else
-    let s = 'unkwown'
-endif
-
+let s = has_key(dic_line, f) ? dic_line[f] : 'unkwown'
 set statusline=%t\ %m%r%h%w[%Y][%{&fenc}][%{s}]%=%c,%l%11p%%
 
-" --- キーマッピング ---
+" Color Schema
+set t_Co=256
+set term=screen-256color-bce
+colorscheme solarized
+let g:solarized_termtrans=256
+set background=dark
+
+" Utility
+" OSのクリップボードをレジスタ指定無しでヤンク、プットできるようにする
+set clipboard=unnamed,unnamedplus
+
+" マウス入力受付
+set mouse=a
+
+" ビープ音無効化
+set novisualbell
+set vb t_vb=
+
+" Windowsでもパス区切りを[/]にする
+set shellslash
+
+" インサートモードから抜けると自動的にIMEをoffにする
+" ToDo: Macで効かないので、設定方法調べる
+set iminsert=0
+
+" コマンドライン補完の有効化
+set wildmenu wildmode=list:longest,full
+
+" コマンドライン履歴数
+set history=100
+
+" --- Key maps ---
 " <ESC>連打で検索後のハイライトを消す
 nnoremap <silent><ESC><ESC> :noh<CR>
 
-
-" --- オートコマンド ---
-" templates {{{
+" --- Auto commands ---
+" テンプレートファイル読み込み
 augroup MyTemplates
     autocmd!
     autocmd BufNewFile *.cs   0r $HOME/.vim/template/template.cs
@@ -213,107 +299,17 @@ augroup MyTemplates
     autocmd BufNewFile *.py   0r $HOME/.vim/template/template.py
     autocmd BufNewFile *.xml  0r $HOME/.vim/template/template.xml
 augroup END
-" }}}
 
-" markdown {{{
-augroup MyMarkdown
-  autocmd!
-  autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
-augroup END
-"}}}
-
-"  閉じタグ {{{
+" マークアップ言語の閉じタグ補完
 augroup AutoCloseTag
     autocmd!
-    autocmd Filetype html inoremap <buffer></ </<C-x><C-o>
-    autocmd Filetype htmldjango inoremap <buffer></ </<C-x><C-o>
-    autocmd Filetype xml inoremap <buffer></ </<C-x><C-o>
+    autocmd Filetype html,htmldjango,php,xml inoremap <buffer></ </<C-x><C-o>
 augroup END
-" }}}
 
-
-" --- 各種プラグイン設定 ---
-" quick-run {{{
-
-let g:quickrun_config = {}
-
-"}}}
-
-" watchdogs-vim {{{
-" ファイル書き込み後にシンタックスチェックを行う
-" filetype別に設定が可能
-" 0: 無効/1: 有効
-let g:watchdogs_check_BufWritePost_enables = {
-            \ "c": 1,
-            \ "cpp": 1,
-            \ "cs": 0,
-            \ "python": 1,
-            \ }
-
-" 一定時間キー入力がなかった場合にシンタックスチェックを行う
-" filetype別に設定が可能
-" 0: 無効/1: 有効
-let g:watchdogs_check_CursorHold_enables = {
-            \ "c": 1,
-            \ "cpp": 1,
-            \ "cs": 0,
-            \ "python": 1,
-            \ }
-
-" シンタックスチェックツール設定
-let g:quickrun_config = {
-            \ "watchdogs_checker/g++": {
-            \   "cmdopt": "-Wall"
-            \   },
-            \ "watchdogs_checker/clang++": {
-            \   "cmdopt": "-Wall",
-            \   },
-            \ "watchdogs_checker/flake8": {
-            \   },
-            \ }
-
-" quickfixウィンドウを開かないようにする
-" vimprocの更新時間の設定
-let g:quickrun_config["watchdogs_checker/_"] = {
-            \ "outputter/quickrun/open_cmd": "",
-            \ "hook/close_quickfix/enable_exit": 1,
-            \ "runner/vimproc/updatetime": 40,
-            \ }
-
-" :wq実行時にsyntax checkしないようにする
-let g:watchdogs_check_BufWritePost_enable_on_wq = 0
-
-" watchdogs.vimの設定を追加
-call watchdogs#setup(g:quickrun_config)
-
-"}}}
-
-
-" vim-clang {{{
-let g:clang_auto = 1 "neocomplete等と連携する場合は0を設定すること
-let clang_targets = ['clang-3.6', 'clang-3.5', 'clang-3.4', 'clang']
-let clang_formats = ['clang-format-3.6', 'clang-format-3.5', 'clang-format-3.4', 'clang-format']
-for target in clang_targets
-    if executable(target)
-        let g:clang_exec = target
-    endif
-endfor
-for target in clang_formats
-    if executable(target)
-        let g:clang_format_exec = target
-    endif
-endfor
-
-"}}}
-
-
-" NERDTree {{{
-" 隠しファイルを表示
-let NERDTreeShowHidden = 1
-
-" ショートカットキー
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-" }}}
-
-
+" 特殊な拡張子を既存のfyletypeとして認識させる
+" ToDo: filetype設定へ移す
+augroup MyFileTypes
+  autocmd!
+  autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
+  autocmd BufRead,BufNewFile *.ctp setlocal filetype=html
+augroup END
