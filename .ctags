@@ -1,7 +1,9 @@
 --append=yes
 --recurse=yes
---langmap=PHP:+.inc
+--langmap=PHP:+.php.inc.tpl.ctp
 --php-kinds=cfd
+
+--regex-php="/^[ \t]*const[ \t]+([a-z0-9_]+)/\1/d/i"
 
 
 --langdef=js
