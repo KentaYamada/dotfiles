@@ -151,21 +151,29 @@ let g:quickrun_config = {
 \  'watchdogs_checker/g++': {
 \    'cmdopt': '-Wall -Werror'
 \  },
+\  'watchdogs_checker/php': {
+\  }
 \}
 
 " watchdogs全体設定
 " 1. シンタックスチェック実行時にquickrunウィンドウを開かせない
 " 2. vimprocの更新時間設定
 let g:quickrun_config['watchdogs_checker/_'] = {
-\       'outputter/quickfix/open_cmd'    : '',
-\       'hook/close_quickfix/enable_exit': 1,
-\       'runner/vimproc/updatetime'      : 40
+\       'runner/vimproc/updatetime'       : 40,
+\       'outputter/quickfix/open_cmd'     : '',
+\       'hook/close_quickfix/enable_exit' : 1
 \}
 
 " Require: watchdogs.vimへ設定の追加
 call watchdogs#setup(g:quickrun_config)
 " }}}
 
+" jedi-vim {{{
+
+" PyDoc非表示
+autocmd Filetype python setlocal completeopt-=preview
+
+" }}}
 
 " --- Basic Settings ---
 " File edit
