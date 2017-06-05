@@ -313,11 +313,3 @@ augroup AutoCloseTag
     autocmd!
     autocmd Filetype html,htmldjango,php,xml inoremap <buffer></ </<C-x><C-o>
 augroup END
-
-" 特殊な拡張子を既存のfyletypeとして認識させる
-" ToDo: filetype設定へ移す
-augroup MyFileTypes
-  autocmd!
-  autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
-  autocmd BufRead,BufNewFile *.ctp setlocal filetype=html
-augroup END
