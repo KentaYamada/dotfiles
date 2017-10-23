@@ -49,10 +49,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle "dannyob/quickfixstatus"
+NeoBundle "thinca/vim-quickrun"
 NeoBundle "osyo-manga/shabadou.vim"
 NeoBundle "osyo-manga/vim-watchdogs"
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle "thinca/vim-quickrun"
+NeoBundle "leafgarland/typescript-vim/"
+NeoBundle "scrooloose/nerdtree/"
+NeoBundle "joonty/vdebug/"
+NeoBundle 'Shougo/unite.vim'
 
 NeoBundle "Shougo/vimproc", {
             \ 'build': {'mac': 'make', 'linux': 'make'},
@@ -174,6 +177,38 @@ call watchdogs#setup(g:quickrun_config)
 autocmd Filetype python setlocal completeopt-=preview
 
 " }}}
+
+" NERDTree {{{
+
+" 隠しファイル表示
+let NERDTreeShowHidden = 1
+
+" キーマップ
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" }}}
+
+" vdebug {{{
+let g:vdebug_force_ascii = 1
+" let g:vdebug_options = {
+" \    "port": 9000,
+" \    "server" : 'localhost',
+" \    "timeout" : 20,
+" \    "on_close" : 'detach',
+" \    "break_on_open" : 1,
+" \    "ide_key" : 'IDE_KEY',
+" \    "path_maps" : {},
+" \    "debug_window_level" : 0,
+" \    "debug_file_level" : 0,
+" \    "debug_file" : "",
+" \    "watch_window_style" : 'expanded',
+" \    "marker_default" : '⬦',
+" \    "marker_closed_tree" : '▸',
+" \    "marker_open_tree" : '▾'
+" \}
+
+" }}}
+
 
 " --- Basic Settings ---
 " File edit
@@ -311,5 +346,12 @@ augroup END
 " マークアップ言語の閉じタグ補完
 augroup AutoCloseTag
     autocmd!
-    autocmd Filetype html,htmldjango,php,xml inoremap <buffer></ </<C-x><C-o>
+    autocmd Filetype html,xml inoremap <buffer></ </<C-x><C-o>
+    autocmd Filetype ctp,php inoremap <buffer></ </<C-x><C-o>
+    autocmd Filetype htmldjango inoremap <buffer></ </<C-x><C-o>
+augroup END
+
+augroup TypeScriptCmd
+    autocmd!
+    autocmd BufRead,BufNewFile *.ts set filetype=typescript
 augroup END
