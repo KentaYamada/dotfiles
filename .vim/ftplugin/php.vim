@@ -12,3 +12,6 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+" デフォルトDBの設定
+let g:sql_type_default = 'mysql'
