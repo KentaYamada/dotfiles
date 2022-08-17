@@ -15,7 +15,13 @@ source ~/.config/nvim/configs/options.vim
 source ~/.config/nvim/configs/key-mappings.vim
 
 " プラグイン
-filetype plugin on
+filetype plugin indent off
+
+source ~/.config/nvim/plugins/jetpack.vim
+
+filetype plugin indent on
 
 " netrw
 source ~/.config/nvim/plugins/netrw.vim
+" fzf
+source ~/.config/nvim/plugins/fzf.vim
