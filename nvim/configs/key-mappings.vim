@@ -38,14 +38,21 @@ nnoremap P ]P
 nnoremap <silent> vn :vs +enew<CR>
 nnoremap <silent> sn :sp +enew<CR>
 
-
-"----------
 " タブ操作
-"----------
 nnoremap tnw :<C-u>tabnew<CR>  " 新しいタブを開く
 nnoremap tc :<C-u>tabclose<CR> " タブを閉じる
 nnoremap tn gt                 " 次のタブへ
 nnoremap tp gT                 " 前のタブへ
+
+"----------------
+" 挿入モード操作
+"----------------
+inoremap ' ''<left>
+inoremap " ""<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>0
 
 "--------------------
 " コマンドモード操作
@@ -59,4 +66,3 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " ---------------------
 " ESCキーでノーマルモードに切替
 tnoremap <ESC> <C-\><C-n>
-
