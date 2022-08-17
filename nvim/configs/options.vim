@@ -1,10 +1,10 @@
-" ------------------
+"------------------------------------------------
 " options.vim
 " set {option} 設定
 "
 " Author: YamaKen
 " See: https://vim-jp.org/vimdoc-ja/options.html
-" ------------------
+"------------------------------------------------
 
 "----------
 " カーソル
@@ -35,6 +35,12 @@ set laststatus=2
 set cmdheight=2
 " コマンド表示
 set showcmd
+" 目印桁の表示
+if has('nvim-0.5.0') || has('patch-8.1.1564')
+    set signcolumn=number
+else
+    set signcolumn=yes
+endif
 
 "----------
 " ファイル
@@ -70,6 +76,8 @@ set nobackup
 set nowritebackup
 " スワップファイルを作成しない
 set noswapfile
+" 編集中のタイトル表示
+set title
 
 "-----------
 " 検索/置換
