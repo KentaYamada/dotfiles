@@ -13,3 +13,9 @@ source ~/.config/nvim/configs/options.vim
 
 " キーマッピング
 source ~/.config/nvim/configs/key-mappings.vim
+
+" プラグイン
+filetype plugin on
+
+" netrw
+source ~/.config/nvim/plugins/netrw.vim
