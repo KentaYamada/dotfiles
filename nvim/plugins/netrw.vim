@@ -23,9 +23,6 @@ let g:netrw_preview = 1
 " 分割して開いたときのサイズ (40%)
 let g:netrw_winsize = 40
 
-" 右側へ分割して開く
-let g:netrw_altv = 1
-
 " netrwトグル開閉
 function! ToggleNetrw()
     if exists("t:expl_buf_num")

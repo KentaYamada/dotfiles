@@ -14,6 +14,9 @@ source ~/.config/nvim/configs/options.vim
 " キーマッピング
 source ~/.config/nvim/configs/key-mappings.vim
 
+" 環境別の設定
+source ~/.config/nvim/configs/environment.vim
+
 " プラグイン
 filetype plugin indent off
 
@@ -25,3 +28,8 @@ filetype plugin indent on
 source ~/.config/nvim/plugins/netrw.vim
 " fzf
 source ~/.config/nvim/plugins/fzf.vim
+" lightline
+source ~/.config/nvim/plugins/lightline.vim
+
+" カラースキーム
+source ~/.config/nvim/configs/color.vim
