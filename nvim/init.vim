@@ -30,6 +30,8 @@ source ~/.config/nvim/plugins/netrw.vim
 source ~/.config/nvim/plugins/fzf.vim
 " lightline
 source ~/.config/nvim/plugins/lightline.vim
+" lsp
+source ~/.config/nvim/plugins/mason.vim
 
 " カラースキーム
 source ~/.config/nvim/configs/color.vim

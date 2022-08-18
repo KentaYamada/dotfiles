@@ -16,4 +16,9 @@ Jetpack 'mattn/emmet-vim', {'for': 'html'}
 " firestoreシンタックス
 Jetpack 'delphinus/vim-firestore', {'for': 'firestore'}
 
+" lsp
+Jetpack 'williamboman/mason.nvim'
+Jetpack 'williamboman/mason-lspconfig.nvim'
+Jetpack 'neovim/nvim-lspconfig'
+
 call jetpack#end()
