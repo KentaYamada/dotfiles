@@ -1,5 +1,5 @@
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
+    \ 'colorscheme': 'monokai_pro',
     \ 'active': {
     \   'left': [
     \       ['mode', 'paste'],

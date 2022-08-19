@@ -11,6 +11,7 @@ Jetpack 'junegunn/fzf', {'do': {-> fzf#install()}}
 Jetpack 'itchyny/lightline.vim'
 " カラースキーム
 Jetpack 'sainnhe/sonokai'
+Jetpack 'phanviet/vim-monokai-pro'
 " emmet
 Jetpack 'mattn/emmet-vim', {'for': 'html'}
 " firestoreシンタックス

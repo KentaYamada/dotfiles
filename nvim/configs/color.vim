@@ -5,4 +5,4 @@
 " Author: YamaKen
 "--------------------
 set termguicolors
-colorscheme sonokai
+colorscheme monokai_pro
