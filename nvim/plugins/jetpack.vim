@@ -21,4 +21,10 @@ Jetpack 'williamboman/mason.nvim'
 Jetpack 'williamboman/mason-lspconfig.nvim'
 Jetpack 'neovim/nvim-lspconfig'
 
+" completion
+Jetpack 'hrsh7th/cmp-nvim-lsp'
+Jetpack 'hrsh7th/nvim-cmp'
+Jetpack 'hrsh7th/cmp-vsnip'
+Jetpack 'hrsh7th/vim-vsnip'
+
 call jetpack#end()

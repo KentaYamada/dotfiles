@@ -64,7 +64,7 @@ set autoindent
 " 改行したときに次の行を自動的にインデントする
 set smartindent
 " 行頭の余白内でTabキーを打ち込むと、smartwidth分インデントする
-set smarttab
+"set smarttab
 " エンコード設定
 set encoding=utf-8
 set fileencoding=utf-8
