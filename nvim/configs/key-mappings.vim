@@ -48,6 +48,11 @@ nnoremap tc :<C-u>tabclose<CR> " タブを閉じる
 nnoremap tn gt                 " 次のタブへ
 nnoremap tp gT                 " 前のタブへ
 
+" terminalを下分割で開く
+nnoremap <silent>tx <CMD>ShowTerminal<CR>
+" terminalを右側に開く
+nnoremap <silent>tv <CMD>vertical rightbelow new<CR><CMD>terminal<CR>
+
 "----------------
 " 挿入モード操作
 "----------------
