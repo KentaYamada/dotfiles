@@ -27,3 +27,6 @@ ln -s $CURRENT_DIR $NVIM_DIR
 # jetpackインストール
 echo "[Info] jetpackパッケージを初回インストールします"
 curl -fLo ~/.local/share/nvim/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+
+# 環境変数設定
+export XDG_CONFIG_HOME=~/.config/nvim/init.vim
