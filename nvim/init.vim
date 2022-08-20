@@ -24,8 +24,8 @@ source ~/.config/nvim/plugins/jetpack.vim
 
 filetype plugin indent on
 
-" netrw
-source ~/.config/nvim/plugins/netrw.vim
+" fern
+source ~/.config/nvim/plugins/fern.vim
 " fzf
 source ~/.config/nvim/plugins/fzf.vim
 " lightline

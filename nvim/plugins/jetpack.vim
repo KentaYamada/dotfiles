@@ -7,6 +7,11 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
 " ファイルエクスプローラー
 Jetpack 'junegunn/fzf.vim'
 Jetpack 'junegunn/fzf', {'do': {-> fzf#install()}}
+Jetpack 'lambdalisue/nerdfont.vim'
+Jetpack 'lambdalisue/fern.vim'
+Jetpack 'lambdalisue/fern-renderer-nerdfont.vim'
+Jetpack 'lambdalisue/fern-git-status.vim'
+
 " ステータスライン
 Jetpack 'itchyny/lightline.vim'
 " カラースキーム
@@ -29,3 +34,8 @@ Jetpack 'hrsh7th/cmp-vsnip'
 Jetpack 'hrsh7th/vim-vsnip'
 
 call jetpack#end()
+
+
+" Key mappings
+" Package update
+nnoremap <silent><leader>pu :JetpackSync<CR>
