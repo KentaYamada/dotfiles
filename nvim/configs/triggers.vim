@@ -12,6 +12,8 @@ augroup END
 augroup TermCmd
     autocmd!
     autocmd TermOpen * startinsert " Terminal modeで開いたときにインサートモードにする
+    autocmd TermOpen * setlocal norelativenumber
+    autocmd TermOpen * setlocal nonumber
 augroup END
 
 augroup TomlCmd

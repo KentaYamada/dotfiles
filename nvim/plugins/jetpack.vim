@@ -27,12 +27,13 @@ Jetpack 'williamboman/mason.nvim'
 Jetpack 'williamboman/mason-lspconfig.nvim'
 Jetpack 'neovim/nvim-lspconfig'
 
-" completion
+" 補完
 Jetpack 'hrsh7th/cmp-nvim-lsp'
 Jetpack 'hrsh7th/nvim-cmp'
 Jetpack 'hrsh7th/cmp-vsnip'
 Jetpack 'hrsh7th/vim-vsnip'
-
+Jetpack 'hrsh7th/cmp-buffer'
+Jetpack 'hrsh7th/cmp-path'
 call jetpack#end()
 
 
