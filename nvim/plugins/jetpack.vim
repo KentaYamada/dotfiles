@@ -15,7 +15,6 @@ Jetpack 'lambdalisue/fern-git-status.vim'
 " ステータスライン
 Jetpack 'itchyny/lightline.vim'
 " カラースキーム
-Jetpack 'sainnhe/sonokai'
 Jetpack 'phanviet/vim-monokai-pro'
 " emmet
 Jetpack 'mattn/emmet-vim', {'for': 'html'}
