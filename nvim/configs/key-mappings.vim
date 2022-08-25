@@ -56,8 +56,6 @@ nnoremap <silent>tv <CMD>vertical rightbelow new<CR><CMD>terminal<CR>
 "----------------
 " 挿入モード操作
 "----------------
-inoremap ' ''<left>
-inoremap " ""<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
