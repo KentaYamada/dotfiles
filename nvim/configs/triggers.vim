@@ -9,6 +9,11 @@ augroup CakePhpCmd
     autocmd BufNewFile,BufRead *.ctp setfiletype php
 augroup END
 
+augroup ConfCmd
+    autocmd!
+    autocmd BufNewFile, BufRead *.conf setfiletype config
+augroup END
+
 augroup TermCmd
     autocmd!
     autocmd TermOpen * startinsert " Terminal modeで開いたときにインサートモードにする
