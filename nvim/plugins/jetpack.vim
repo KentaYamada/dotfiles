@@ -36,6 +36,9 @@ Jetpack 'hrsh7th/nvim-cmp'
 Jetpack 'hrsh7th/cmp-vsnip'
 Jetpack 'hrsh7th/vim-vsnip'
 
+Jetpack 'nvim-lua/plenary.nvim'
+Jetpack 'jose-elias-alvarez/null-ls.nvim'
+
 call jetpack#end()
 
 
