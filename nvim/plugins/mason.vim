@@ -26,12 +26,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "<leader>ge", "<cmd>lua vim.diagnostic.open_float()<CR>", mapping_opts)
     vim.keymap.set("n", "<leader>g]", "<cmd>lua vim.diagnostic.goto_next()<CR>", mapping_opts)
     vim.keymap.set("n", "<leader>g[", "<cmd>lua vim.diagnostic.goto_prev()<CR>", mapping_opts)
-
-    -- auto commands
-    -- formatting on save
-    vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-        command = "lua vim.lsp.buf.formatting_sync()"
-    })
 end
 
 mason.setup({
