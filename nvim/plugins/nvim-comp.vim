@@ -40,7 +40,7 @@ local mason_lsp_config = require("mason-lspconfig")
 mason_lsp_config.setup_handlers({ function(server)
     local cmp_nvim_lsp = require('cmp_nvim_lsp')
     local opts = {
-        capabilities = cmp_nvim_lsp.update_capabilities(
+        capabilities = cmp_nvim_lsp.default_capabilities(
             vim.lsp.protocol.make_client_capabilities()
         )
     }
