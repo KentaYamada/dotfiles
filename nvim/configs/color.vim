@@ -5,4 +5,5 @@
 " Author: YamaKen
 "--------------------
 set termguicolors
-colorscheme monokai_pro
+" colorscheme monokai_pro
+colorscheme nightfox

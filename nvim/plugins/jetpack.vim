@@ -16,6 +16,8 @@ Jetpack 'lambdalisue/fern-git-status.vim'
 Jetpack 'itchyny/lightline.vim'
 " カラースキーム
 Jetpack 'phanviet/vim-monokai-pro'
+Jetpack 'EdenEast/nightfox.nvim'
+
 " emmet
 Jetpack 'mattn/emmet-vim', {'for': 'html'}
 " firestoreシンタックス
