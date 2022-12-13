@@ -1,5 +1,7 @@
 {
-    "eslint.autoFixOnSave": true,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnSave": true,
+    "eslint.enable": true,
     "eslint.format.enable": true,
     "eslint.probe": [
         "javascript",
@@ -7,5 +9,6 @@
         "typescript",
         "typescriptreact"
     ],
-    "tsserver.enable": true
+    "prettier.enable": true,
+    "tsserver.enable": true,
 }
