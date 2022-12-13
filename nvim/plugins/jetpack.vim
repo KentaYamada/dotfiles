@@ -11,6 +11,7 @@ Jetpack 'lambdalisue/nerdfont.vim'
 Jetpack 'lambdalisue/fern.vim'
 Jetpack 'lambdalisue/fern-renderer-nerdfont.vim'
 Jetpack 'lambdalisue/fern-git-status.vim'
+Jetpack 'lambdalisue/glyph-palette.vim'
 
 " ステータスライン
 Jetpack 'itchyny/lightline.vim'

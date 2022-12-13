@@ -17,4 +17,6 @@ endfunction
 augroup FernCmd
     autocmd! *
     autocmd FileType fern call s:fern_init()
+    autocmd FileType fern call glyph_palette#apply()
+    autocmd FileType nerdtree.startify call glyph_palette#apply()
 augroup END
