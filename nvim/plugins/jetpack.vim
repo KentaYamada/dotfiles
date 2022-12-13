@@ -20,6 +20,8 @@ Jetpack 'phanviet/vim-monokai-pro'
 Jetpack 'mattn/emmet-vim', {'for': 'html'}
 " firestoreシンタックス
 Jetpack 'delphinus/vim-firestore', {'for': 'firestore'}
+" Syntax Color
+Jetpack 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
 
 " lsp
 Jetpack 'neovim/nvim-lspconfig'

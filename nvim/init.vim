@@ -35,3 +35,4 @@ source ~/.config/nvim/plugins/mason.vim
 source ~/.config/nvim/plugins/null-ls.vim
 
 source ~/.config/nvim/configs/color.vim
+source ~/.config/nvim/plugins/treesitter.vim
