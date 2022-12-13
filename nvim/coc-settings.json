@@ -8,5 +8,5 @@
     "typescript",
     "typescriptreact"
   ],
-  "prettier.enable": true
+  "tsserver.enable": true
 }
