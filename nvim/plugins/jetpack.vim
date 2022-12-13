@@ -41,6 +41,8 @@ Jetpack 'hrsh7th/nvim-cmp'
 Jetpack 'hrsh7th/cmp-vsnip'
 Jetpack 'hrsh7th/vim-vsnip'
 
+Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
+
 Jetpack 'nvim-lua/plenary.nvim'
 Jetpack 'jose-elias-alvarez/null-ls.nvim'
 

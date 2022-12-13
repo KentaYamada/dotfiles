@@ -29,10 +29,11 @@ source ~/.config/nvim/plugins/fern.vim
 source ~/.config/nvim/plugins/lightline.vim
 
 " language server plugin
-source ~/.config/nvim/plugins/nvim-comp.vim
-source ~/.config/nvim/plugins/mason.vim
+" source ~/.config/nvim/plugins/nvim-comp.vim
+" source ~/.config/nvim/plugins/mason.vim
 " source ~/.config/nvim/plugins/nvim-lsp.vim
-source ~/.config/nvim/plugins/null-ls.vim
+" source ~/.config/nvim/plugins/null-ls.vim
+source ~/.config/nvim/plugins/coc.vim
 
 source ~/.config/nvim/configs/color.vim
 source ~/.config/nvim/plugins/treesitter.vim
