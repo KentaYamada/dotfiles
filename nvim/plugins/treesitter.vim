@@ -9,10 +9,12 @@ treesitter.setup({
         'css',
         'javascript',
         'json',
+        'lua',
         'html',
         'make',
         'php',
-        'typescript'
+        'typescript',
+        'vim'
     },
 
     -- Automatically install missing parsers when entering buffer
@@ -20,11 +22,7 @@ treesitter.setup({
     auto_install = false,
 
     highlight = {
-        enable = true,
-        disable = {
-            'lua',
-            'vue'
-        }
+        enable = true
     }
 })
 
