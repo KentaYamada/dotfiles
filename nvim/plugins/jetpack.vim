@@ -46,6 +46,12 @@ Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
 Jetpack 'nvim-lua/plenary.nvim'
 Jetpack 'jose-elias-alvarez/null-ls.nvim'
 
+" Git
+Jetpack 'TimUntersberger/neogit'
+Jetpack 'nvim-lua/plenary.nvim'
+Jetpack 'sindrets/diffview.nvim'
+Jetpack 'lewis6991/gitsigns.nvim'
+
 call jetpack#end()
 
 
