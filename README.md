@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-マイペースに更新中
+Under constructing
