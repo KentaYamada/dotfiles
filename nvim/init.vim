@@ -11,7 +11,7 @@
 source ~/.config/nvim/configs/variables.vim
 source ~/.config/nvim/configs/environment.vim
 source ~/.config/nvim/configs/options.vim
-source ~/.config/nvim/configs/key-mappings.vim
+source ~/.config/nvim/lua/basic-configs/keymaps.lua
 source ~/.config/nvim/configs/commands.vim
 source ~/.config/nvim/configs/triggers.vim
 
@@ -35,9 +35,10 @@ source ~/.config/nvim/plugins/lightline.vim
 " source ~/.config/nvim/plugins/null-ls.vim
 source ~/.config/nvim/plugins/coc.vim
 
-source ~/.config/nvim/configs/color.vim
-source ~/.config/nvim/plugins/treesitter.lua
+source ~/.config/nvim/lua/basic-configs/color.lua
+
+source ~/.config/nvim/lua/plugin-configs/treesitter.lua
 
 " Git
-source ~/.config/nvim/plugins/neogit.lua
-source ~/.config/nvim/plugins/gitsigns.rc.lua
+source ~/.config/nvim/lua/plugin-configs/gitsigns.lua
+source ~/.config/nvim/lua/plugin-configs/neogit.lua
