@@ -36,7 +36,7 @@ source ~/.config/nvim/plugins/lightline.vim
 source ~/.config/nvim/plugins/coc.vim
 
 source ~/.config/nvim/configs/color.vim
-source ~/.config/nvim/plugins/treesitter.vim
+source ~/.config/nvim/plugins/treesitter.lua
 
 " Git
 source ~/.config/nvim/plugins/neogit.lua

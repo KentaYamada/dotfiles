@@ -1,5 +1,3 @@
-lua << EOF
-
 local treesitter = require('nvim-treesitter.configs')
 treesitter.setup({
     -- A list of parser names, or "all"
@@ -36,5 +34,3 @@ treesitter.setup({
         additional_vim_regex_highlighting = true,
     }
 })
-
-EOF
