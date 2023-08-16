@@ -47,8 +47,8 @@ vim.keymap.set('i', '[', '[]<left>', { noremap = true, silent = true })
 vim.keymap.set('i', '{', '{}<left>', { noremap = true, silent = true })
 
 -- Tab operations keymaps
-vim.keymap.set('n', 'tnw', '<C-u>tabnew<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', 'tc', '<C-u>tabclose<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', 'tnw', ':<C-u>tabnew<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', 'tc', ':<C-u>tabclose<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', 'tn', 'gt', { noremap = true, silent = true })
 vim.keymap.set('n', 'tp', 'gT', { noremap = true, silent = true })
 
