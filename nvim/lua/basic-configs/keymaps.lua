@@ -42,9 +42,9 @@ vim.keymap.set('n', 'tv', '<CMD>vertical rightbelow new<CR><CMD>terminal<CR>', {
 -- cocと被ってる？
 vim.keymap.set('n', '<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>;', { noremap = true, silent = true })
 
-vim.keymap.set('n', '(', '()<left>', { noremap = true, silent = true })
-vim.keymap.set('n', '[', '[]<left>', { noremap = true, silent = true })
-vim.keymap.set('n', '{', '{}<left>', { noremap = true, silent = true })
+vim.keymap.set('i', '(', '()<left>', { noremap = true, silent = true })
+vim.keymap.set('i', '[', '[]<left>', { noremap = true, silent = true })
+vim.keymap.set('i', '{', '{}<left>', { noremap = true, silent = true })
 
 -- Tab operations keymaps
 vim.keymap.set('n', 'tnw', '<C-u>tabnew<CR>', { noremap = true, silent = true })
