@@ -8,7 +8,7 @@
 "---------------
 " basic configs
 "---------------
-source ~/.config/nvim/configs/variables.vim
+" source ~/.config/nvim/configs/variables.vim
 source ~/.config/nvim/configs/environment.vim
 source ~/.config/nvim/configs/options.vim
 source ~/.config/nvim/lua/basic-configs/keymaps.lua

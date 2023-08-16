@@ -9,6 +9,9 @@
 -- Reference
 -- https://github.com/neovim/neovim/commit/6d41f65aa45f10a93ad476db01413abaac21f27d
 
+-- map leader (default: \)
+vim.g.mapleader = ' '
+
 -- Disable keymaps
 vim.keymap.set('n', 'q:', '<Nop>', { noremap = true })
 vim.keymap.set('n', 'ZZ', '<Nop>', { noremap = true })
