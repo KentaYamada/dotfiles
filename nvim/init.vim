@@ -13,7 +13,7 @@ source ~/.config/nvim/configs/environment.vim
 source ~/.config/nvim/configs/options.vim
 source ~/.config/nvim/lua/basic-configs/keymaps.lua
 source ~/.config/nvim/configs/commands.vim
-source ~/.config/nvim/configs/triggers.vim
+source ~/.config/nvim/lua/basic-configs/triggers.lua
 
 filetype plugin indent off
 
