@@ -8,20 +8,14 @@
 "---------------
 " basic configs
 "---------------
-" source ~/.config/nvim/configs/variables.vim
 source ~/.config/nvim/configs/environment.vim
 source ~/.config/nvim/configs/options.vim
 source ~/.config/nvim/lua/basic-configs/options.lua
 source ~/.config/nvim/lua/basic-configs/keymaps.lua
-" source ~/.config/nvim/configs/commands.vim
 source ~/.config/nvim/lua/basic-configs/commands.lua
 source ~/.config/nvim/lua/basic-configs/triggers.lua
 
-filetype plugin indent off
-
-source ~/.config/nvim/plugins/jetpack.vim
-
-filetype plugin indent on
+source ~/.config/nvim/lua/plugin-configs/jetpack.lua
 
 " file explore plugins
 source ~/.config/nvim/plugins/fzf.vim
