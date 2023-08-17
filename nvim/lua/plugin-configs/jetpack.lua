@@ -7,6 +7,7 @@ require('jetpack.packer').add {
     {'tani/vim-jetpack', opt = true},
     -- Utility
     {'nvim-lua/plenary.nvim'},
+    {'sindrets/diffview.nvim'},
     -- Finder
     {'nvim-tree/nvim-web-devicons'},
     {'nvim-telescope/telescope.nvim', tag = '0.1.2'},
@@ -44,7 +45,6 @@ require('jetpack.packer').add {
     -- Git
     {'TimUntersberger/neogit'},
     {'lewis6991/gitsigns.nvim'},
-    {'sindrets/diffview.nvim'},
 
     {'jose-elias-alvarez/null-ls.nvim'},
 }
