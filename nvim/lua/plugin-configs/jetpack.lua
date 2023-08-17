@@ -12,6 +12,7 @@ require('jetpack.packer').add {
     {'nvim-tree/nvim-web-devicons'},
     {'nvim-telescope/telescope.nvim', tag = '0.1.2'},
     -- File explore
+    {'nvim-tree/nvim-tree.lua'},
     {'lambdalisue/nerdfont.vim'},
     {'lambdalisue/fern.vim'},
     {'lambdalisue/fern-renderer-nerdfont.vim'},

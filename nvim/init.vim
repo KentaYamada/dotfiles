@@ -19,8 +19,9 @@ source ~/.config/nvim/lua/plugin-configs/jetpack.lua
 
 " Fuzzy finder
 source ~/.config/nvim/lua/plugin-configs/telescope.lua
-
-source ~/.config/nvim/plugins/fern.vim
+" File explore
+source ~/.config/nvim/lua/plugin-configs/nvim-tree-lua.lua
+" source ~/.config/nvim/plugins/fern.vim
 
 " status line plugin
 source ~/.config/nvim/lua/plugin-configs/lualine.lua
