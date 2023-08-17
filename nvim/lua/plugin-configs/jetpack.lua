@@ -5,9 +5,11 @@ vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').add {
     -- Bootstrap
     {'tani/vim-jetpack', opt = true},
+    -- Utility
+    {'nvim-lua/plenary.nvim'},
     -- Finder
-    {'junegunn/fzf.vim'},
-    {'junegunn/fzf', run = 'call fzf#install()'},
+    {'nvim-tree/nvim-web-devicons'},
+    {'nvim-telescope/telescope.nvim', tag = '0.1.2'},
     -- File explore
     {'lambdalisue/nerdfont.vim'},
     {'lambdalisue/fern.vim'},
@@ -42,7 +44,6 @@ require('jetpack.packer').add {
     -- Git
     {'TimUntersberger/neogit'},
     {'lewis6991/gitsigns.nvim'},
-    {'nvim-lua/plenary.nvim'},
     {'sindrets/diffview.nvim'},
 
     {'jose-elias-alvarez/null-ls.nvim'},

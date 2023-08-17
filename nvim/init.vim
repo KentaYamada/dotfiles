@@ -18,8 +18,7 @@ source ~/.config/nvim/lua/basic-configs/triggers.lua
 source ~/.config/nvim/lua/plugin-configs/jetpack.lua
 
 " file explore plugins
-source ~/.config/nvim/plugins/fzf.vim
-source ~/.config/nvim/plugins/fern.vim
+source ~/.config/nvim/lua/plugin-configs/telescope.lua
 
 " status line plugin
 source ~/.config/nvim/lua/plugin-configs/lualine.lua
