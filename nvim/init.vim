@@ -22,7 +22,7 @@ source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/fern.vim
 
 " status line plugin
-source ~/.config/nvim/plugins/lightline.vim
+source ~/.config/nvim/lua/plugin-configs/lualine.lua
 
 " language server plugin
 " source ~/.config/nvim/plugins/nvim-comp.vim

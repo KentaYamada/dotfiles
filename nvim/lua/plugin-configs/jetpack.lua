@@ -17,6 +17,7 @@ require('jetpack.packer').add {
     -- Statusline
     -- todo: replace to lua line
     {'itchyny/lightline.vim'},
+    {'nvim-lualine/lualine.nvim'},
     -- Colorscheme
     {'EdenEast/nightfox.nvim'},
     -- Emet
