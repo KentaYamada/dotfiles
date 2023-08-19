@@ -115,7 +115,8 @@ cmp.setup.cmdline(':', {
 -- 補完時にLSPが効くようにする
 mason_lspconfig.setup_handlers({ function(server_name)
     local cmplsp = require('cmp_nvim_lsp')
-    lspconfig[server_name].setup({ capabilities = cmplsp.default_capabilities() })
+    local capabilities = cmplsp.default_capabilities()
+    lspconfig[server_name].setup({ capabilities = capabilities })
 end })
 
 -- Linter configuration

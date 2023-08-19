@@ -29,7 +29,7 @@ require('jetpack.packer').add {
     {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
-    {'neoclide/coc.nvim' , branch = 'release'},
+    -- {'neoclide/coc.nvim' , branch = 'release'},
     -- Linter
     {'mfussenegger/nvim-lint'},
     -- Formatter
