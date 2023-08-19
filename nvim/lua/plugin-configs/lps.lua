@@ -32,7 +32,7 @@ mason_lspconfig.setup({
 })
 
 -- Complement configuration
--- See: 
+-- See: https://github.com/hrsh7th/nvim-cmp
 local cmp = require('cmp')
 cmp.setup({
     snippet = {
@@ -54,23 +54,33 @@ cmp.setup({
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
-    sources = {
+    sources = cmp.config.sources({
         {name = 'nvim_lsp'},
-        {name = 'buffer'},
         {name = 'path'},
         {name = 'vsnip'},
-    }
+    }, {name ='buffer'})
+})
+ -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })
 
 -- 補完時にLSPが効くようにする
 mason_lspconfig.setup_handlers({ function(server_name)
     local cmplsp = require('cmp_nvim_lsp')
-    local opts = {
-        capabilities = cmplsp.default_capabilities(
-            vim.lsp.protocol.make_client_capabilities()
-        )
-    }
-    lspconfig[server_name].setup(opts)
+    lspconfig[server_name].setup({ capabilities = cmplsp.default_capabilities() })
 end })
 
 -- Linter, Formatter configuration
