@@ -13,11 +13,6 @@ require('jetpack.packer').add {
     {'nvim-telescope/telescope.nvim', tag = '0.1.2'},
     -- File explore
     {'nvim-tree/nvim-tree.lua'},
-    {'lambdalisue/nerdfont.vim'},
-    {'lambdalisue/fern.vim'},
-    {'lambdalisue/fern-renderer-nerdfont.vim'},
-    {'lambdalisue/fern-git-status.vim'},
-    {'lambdalisue/glyph-palette.vim'},
     -- Statusline
     -- todo: replace to lua line
     {'itchyny/lightline.vim'},
@@ -35,8 +30,10 @@ require('jetpack.packer').add {
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
     {'neoclide/coc.nvim' , branch = 'release'},
-    -- Linter, Formatter
-    {'jose-elias-alvarez/null-ls.nvim'},
+    -- Linter
+    {'mfussenegger/nvim-lint'},
+    -- Formatter
+    {'mhartington/formatter.nvim'},
     -- Complement
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/vim-vsnip'},
