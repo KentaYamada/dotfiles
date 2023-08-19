@@ -31,7 +31,8 @@ source ~/.config/nvim/lua/plugin-configs/lualine.lua
 " source ~/.config/nvim/plugins/mason.vim
 " source ~/.config/nvim/plugins/nvim-lsp.vim
 " source ~/.config/nvim/plugins/null-ls.vim
-source ~/.config/nvim/plugins/coc.vim
+" source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/lua/plugin-configs/lps.lua
 
 source ~/.config/nvim/lua/basic-configs/color.lua
 

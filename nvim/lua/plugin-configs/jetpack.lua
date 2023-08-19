@@ -35,18 +35,18 @@ require('jetpack.packer').add {
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
     {'neoclide/coc.nvim' , branch = 'release'},
+    -- Linter, Formatter
+    {'jose-elias-alvarez/null-ls.nvim'},
     -- Complement
+    {'hrsh7th/nvim-cmp'},
+    {'hrsh7th/vim-vsnip'},
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/cmp-buffer'},
     {'hrsh7th/cmp-path'},
     {'hrsh7th/cmp-cmdline'},
-    {'hrsh7th/nvim-cmp'},
     {'hrsh7th/cmp-vsnip'},
-    {'hrsh7th/vim-vsnip'},
     -- Git
     {'TimUntersberger/neogit'},
     {'lewis6991/gitsigns.nvim'},
-
-    {'jose-elias-alvarez/null-ls.nvim'},
 }
 vim.cmd('filetype plugin indent on')
