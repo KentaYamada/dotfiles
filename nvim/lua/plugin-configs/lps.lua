@@ -83,10 +83,18 @@ mason_lspconfig.setup_handlers({ function(server_name)
     lspconfig[server_name].setup({ capabilities = cmplsp.default_capabilities() })
 end })
 
--- Linter, Formatter configuration
-local null_ls = require('null-ls')
--- null_ls.setup({
---     sources = {
--- 
---     }
--- })
+-- Linter configuration
+local nvimlint = require('lint')
+nvimlint.linters_by_fy = {
+    javascript = 'eslint',
+    javascriptreact = 'eslint',
+    typescript = 'eslint',
+    typescriptreact = 'eslint'
+}
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+callback = function()
+  require("lint").try_lint()
+end,
+})
+
+-- Formatter configuration
