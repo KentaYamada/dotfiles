@@ -26,6 +26,8 @@ source ~/.config/nvim/lua/plugin-configs/lualine.lua
 " Language server plugin
 " source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/lua/plugin-configs/lps.lua
+" Formatter
+source ~/.config/nvim/lua/plugin-configs/formatter.lua
 " Colorscheme
 source ~/.config/nvim/lua/basic-configs/color.lua
 " Syntax color
