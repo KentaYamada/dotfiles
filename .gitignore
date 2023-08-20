@@ -1,5 +1,1 @@
-# Directories
-.vim/bundle/
-
-# Files
-.vim/.netrwhist
+.DS_STORE
