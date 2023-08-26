@@ -143,6 +143,6 @@ nvimlint.linters_by_fy = {
 }
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 callback = function()
-  require("lint").try_lint()
+  nvimlint.try_lint()
 end,
 })
