@@ -1,0 +1,10 @@
+[user]
+	nema = KentaYamada
+	email = knt.yamada.800@gmail.com
+
+[core]
+	editor = nvim
+
+[pull]
+	rebase = false
+	ff = only

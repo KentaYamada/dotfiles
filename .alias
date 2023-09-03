@@ -1,0 +1,58 @@
+#
+# alias settings
+# Author: Kenta Yamada
+#
+
+# general
+alias vi='vim'
+
+# available after nvim installation
+alias vim='nvim'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~/'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -pv'
+alias grep='grep --color=auto'
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown -h now'
+
+case "${OSTYPE}" in
+darwin*)
+    alias ls='ls -lhFG'
+    alias la='ls -alhFG'
+    ;;
+linux*)
+    alias ls='ls -lhF --color=auto'
+    alias la='ls -alhF --color=auto'
+    ;;
+esac
+
+# git operations
+alias g='git'
+alias ga='git add'
+alias gaa='git add .'
+alias gap='git add -p'
+alias gcm='git commit -m'
+alias gbr='git branch'
+alias gbrr='git branch --remote'
+alias gbrm='git branch -m'
+alias gbrd='git branch -d'
+alias gbrdd'git branch -D'
+alias gdff='git diff'
+alias gl='git log --graph --decorate --oneline'
+alias gst='git status --short --branch'
+alias gcp='git cherry-pick'
+alias greflesh='git fetch origin && git remote prune origin'
+alias gullr='git pull --rebase'
+alias gpu='git push --set-upstream'
+
+# zsh prezto
+alias update-prezto='cd $ZPREZTODIR && git pull && git submodule sync --recursive && git submodule update --init --recursive'
+
+# load local alias
+if [[ -s "${HOME}/.alias.local" ]]; then
+    source "${HOME}/.alias.local"
+fi
