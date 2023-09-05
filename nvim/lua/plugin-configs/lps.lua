@@ -91,9 +91,10 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-        {name = 'nvim_lsp'},
-        {name = 'path'},
-        {name = 'vsnip'},
+        { name = 'nvim_lsp' },
+        { name = 'path' },
+        { name = 'vsnip' },
+        { name = 'nvim_lsp_signature_help' },
     }, {name ='buffer'}),
     formatting = {
         format = function(entry, vim_item)
@@ -113,7 +114,8 @@ cmp.setup({
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'buffer' }
+    { name = 'buffer' },
+    { name = 'nvim_lsp_document_symbol' }
   }
 })
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
