@@ -17,10 +17,16 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
-
--- For example, changing the color scheme:
 config.color_scheme = 'nightfox'
 config.window_background_opacity = 0.8
+
+-- https://wezfurlong.org/wezterm/config/fonts.html#troubleshooting-fonts
+-- see: wezterm ls-fonts --list-system
+config.font = wezterm.font ('Hack Nerd Font')
+
+config.use_ime = true
+
+adjust_window_size_when_changing_font_size = false
 
 -- and finally, return the configuration to wezterm
 return config
