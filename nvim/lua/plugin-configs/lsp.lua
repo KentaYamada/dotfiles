@@ -141,7 +141,7 @@ nvimlint.linters_by_fy = {
     javascript = 'eslint',
     javascriptreact = 'eslint',
     typescript = 'eslint',
-    typescriptreact = 'eslint'
+    typescriptreact = 'eslint',
 }
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 callback = function()

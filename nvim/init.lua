@@ -19,7 +19,7 @@ require('plugin-configs/nvim-tree-lua')
 require('plugin-configs/lualine')
 -- Language server plugin
 -- source ~/.config/nvim/plugins/coc.vim
-require('plugin-configs/lps')
+require('plugin-configs/lsp')
 -- Formatter
 require('plugin-configs/formatter')
 -- Colorscheme
