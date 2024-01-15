@@ -21,7 +21,7 @@ require('plugin-configs/lualine')
 -- source ~/.config/nvim/plugins/coc.vim
 require('plugin-configs/lsp')
 -- Formatter
-require('plugin-configs/formatter')
+require('plugin-configs/none-ls')
 -- Colorscheme
 require('basic-configs/color')
 -- Syntax color

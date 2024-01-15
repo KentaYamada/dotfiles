@@ -32,6 +32,7 @@ require('jetpack.packer').add {
     -- {'neoclide/coc.nvim' , branch = 'release'},
     -- Linter
     {'mfussenegger/nvim-lint'},
+    {'nvimtools/none-ls.nvim'},
     -- Formatter
     {'mhartington/formatter.nvim'},
     -- Complement

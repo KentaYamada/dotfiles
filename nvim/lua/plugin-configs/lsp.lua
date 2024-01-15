@@ -41,6 +41,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
     end
 })
+vim.lsp.handlers["textDocument/diagnostic"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_diagnostic, {
+      underline = true,
+      virtual_text = {
+         format = function(diagnostic)
+             return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+         end,
+      },
+      update_in_insert = false,
+    }
+)
 
 mason.setup()
 mason_lspconfig.setup({
@@ -69,7 +80,6 @@ mason_lspconfig.setup({
 -- Complement configuration
 -- See: https://github.com/hrsh7th/nvim-cmp
 local cmp = require('cmp')
-local lspkind = require('lspkind')
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -134,25 +144,3 @@ mason_lspconfig.setup_handlers({ function(server_name)
     local capabilities = cmplsp.default_capabilities()
     lspconfig[server_name].setup({ capabilities = capabilities })
 end })
-
--- Linter configuration
-local nvimlint = require('lint')
-nvimlint.linters_by_fy = {
-    javascript = 'eslint',
-    javascriptreact = 'eslint',
-    typescript = 'eslint',
-    typescriptreact = 'eslint',
-}
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-callback = function()
-  nvimlint.try_lint()
-end,
-})
-
-vim.diagnostic.config({
-    virtual_text = {
-        format = function(diagnostic)
-            return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-        end
-    }
-})
