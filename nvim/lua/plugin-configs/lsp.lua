@@ -41,17 +41,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
     end
 })
-vim.lsp.handlers["textDocument/diagnostic"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_diagnostic, {
-      underline = true,
-      virtual_text = {
-         format = function(diagnostic)
-             return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-         end,
-      },
-      update_in_insert = false,
-    }
-)
+vim.diagnostic.config({
+  underline = true,
+  virtual_text = {
+     format = function(diagnostic)
+         return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+     end,
+  },
+  update_in_insert = false,
+})
 
 mason.setup()
 mason_lspconfig.setup({
