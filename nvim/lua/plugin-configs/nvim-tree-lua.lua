@@ -25,5 +25,12 @@ vim.opt.termguicolors = true
 
 require("nvim-tree").setup {
 --     on_attach = my_on_attach,
+    filters = {
+        git_ignored = false,
+        custom = {
+            "^\\.git",
+            "^node_modules",
+        }
+    }
 }
 vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle)
