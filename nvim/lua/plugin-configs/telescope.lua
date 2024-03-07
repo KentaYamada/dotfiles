@@ -9,3 +9,4 @@ vim.keymap.set('n', '<leader>g', telescope.live_grep, { noremap = true, silent =
 vim.keymap.set('n', '<leader>G', telescope.grep_string, { noremap = true, silent = true})
 vim.keymap.set('n', '<leader>b', telescope.buffers, { noremap = true, silent = true})
 vim.keymap.set('n', '<leader>h', telescope.oldfiles, { noremap = true, silent = true})
+vim.keymap.set('n', '<leader>d', telescope.diagnostics, { noremap = true, silent = true })

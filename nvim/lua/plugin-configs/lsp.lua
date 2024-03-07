@@ -43,11 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 vim.diagnostic.config({
   underline = true,
-  virtual_text = {
-     format = function(diagnostic)
-         return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-     end,
-  },
+  virtual_text = false,
   update_in_insert = false,
 })
 
