@@ -20,6 +20,8 @@ require('plugin-configs/lualine')
 -- Language server plugin
 -- source ~/.config/nvim/plugins/coc.vim
 require('plugin-configs/lsp')
+-- Complement
+require('plugin-configs/complement')
 -- Formatter
 require('plugin-configs/none-ls')
 -- Colorscheme
