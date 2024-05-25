@@ -22,8 +22,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.autoread = true
 -- 保存されていないファイルがあるときに保存の確認をする
 vim.opt.confirm = true
--- ディレクトリの区切り文字をスラッシュにする(for Windows)
-vim.opt.shellslash = true
 -- 曖昧幅の解消
 vim.opt.ambiwidth = 'double'
 -- スペースのインデント
@@ -65,7 +63,6 @@ vim.opt.background = 'dark'
 
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
-vim.opt.termencoding = 'utf-8'
 vim.opt.fileencodings = { 'utf-8', 'euc-jp', 'sjis', ' iso-2022-jp' }
 vim.opt.fileformats = { 'unix', 'dos', 'mac' }
 

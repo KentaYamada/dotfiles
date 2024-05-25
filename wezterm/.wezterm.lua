@@ -26,7 +26,8 @@ config.font = wezterm.font ('Hack Nerd Font')
 
 config.use_ime = true
 
-adjust_window_size_when_changing_font_size = false
+
+config.adjust_window_size_when_changing_font_size = false
 
 -- and finally, return the configuration to wezterm
 return config
