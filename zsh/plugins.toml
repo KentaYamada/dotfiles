@@ -30,8 +30,3 @@ apply = ["defer"]
 
 [plugins.oh-my-zsh]
 github = "ohmyzsh/ohmyzsh"
-apply = ["defer"]
-
-[plugins.pure]
-github = "sindresorhus/pure"
-use = ["async.zsh", "pure.zsh"]
