@@ -54,7 +54,7 @@ mason_lspconfig.setup({
     ensure_installed = {
         'clangd',
         'eslint',
-        'tsserver',
+        'ts_ls',
         'lua_ls',
         'vimls'
     },
