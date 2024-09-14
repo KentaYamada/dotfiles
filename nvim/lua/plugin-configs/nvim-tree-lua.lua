@@ -28,7 +28,8 @@ require("nvim-tree").setup {
     filters = {
         git_ignored = false,
         custom = {
-            "^\\.git",
+            -- ignore .git, but not .github
+            "\\.git\\(\\(hub\\)\\@!\\)",
             "^node_modules",
         }
     }
