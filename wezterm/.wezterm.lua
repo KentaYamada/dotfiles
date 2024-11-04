@@ -28,7 +28,8 @@ config.use_ime = true
 config.adjust_window_size_when_changing_font_size = false
 
 config.window_decorations = "RESIZE"
-config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = true
+config.hide_tab_bar_if_only_one_tab = false
 config.show_new_tab_button_in_tab_bar = false
 
 config.window_frame = {
@@ -56,6 +57,18 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
      { Foreground = { Color = foreground } },
      { Text = title },
    }
- end)
+end)
+
+wezterm.on("update-right-status", function(window, pane)
+    local date = wezterm.strftime '%Y-%m-%d %H:%M:%S'
+
+    -- Make it italic and underlined
+  window:set_right_status(wezterm.format {
+    { Attribute = { Underline = 'Single' } },
+    { Attribute = { Italic = true } },
+    { Text = date },
+  })
+end)
+
 
 return config
