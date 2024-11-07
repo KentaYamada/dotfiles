@@ -1,7 +1,5 @@
 # load Oh My Zsh
 export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
-# CppUTest
-export CPPUTEST_HOME="$(brew --prefix cpputest)"
 
 # prompt theme
 ZSH_THEME=cloud
