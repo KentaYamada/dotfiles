@@ -27,10 +27,10 @@ config.use_ime = true
 
 config.adjust_window_size_when_changing_font_size = false
 
-config.window_decorations = "RESIZE"
 config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = false
 config.show_new_tab_button_in_tab_bar = false
+config.use_fancy_tab_bar = true
 
 config.window_frame = {
   inactive_titlebar_bg = "none",
@@ -40,6 +40,7 @@ config.window_frame = {
 config.window_background_gradient = {
    colors = { "#000000" },
 }
+
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
    local background = "#5c6d74"
