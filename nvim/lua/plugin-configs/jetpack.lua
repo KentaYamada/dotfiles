@@ -22,7 +22,9 @@ require('jetpack.packer').add {
     -- Emet
     {'mattn/emmet-vim', ft = 'html'},
     -- Syntax
-    {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate'},
+    {'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+    },
     -- nvim用のやつないか調査
     {'delphinus/vim-firestore', ft = 'firestore'},
     -- LSP
