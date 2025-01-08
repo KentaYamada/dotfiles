@@ -10,33 +10,23 @@ require('jetpack.packer').add {
     {'sindrets/diffview.nvim'},
     -- Finder
     {'nvim-tree/nvim-web-devicons'},
-    {'nvim-telescope/telescope.nvim', tag = '0.1.2'},
+    {'nvim-telescope/telescope.nvim', tag = '0.1.8'},
     -- File explore
     {'nvim-tree/nvim-tree.lua'},
     -- Statusline
-    -- todo: replace to lua line
-    {'itchyny/lightline.vim'},
     {'nvim-lualine/lualine.nvim'},
     -- Colorscheme
     {'EdenEast/nightfox.nvim'},
-    -- Emet
-    {'mattn/emmet-vim', ft = 'html'},
     -- Syntax
     {'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
     },
-    -- nvim用のやつないか調査
     {'delphinus/vim-firestore', ft = 'firestore'},
     -- LSP
     {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
-    -- {'neoclide/coc.nvim' , branch = 'release'},
-    -- Linter
-    {'mfussenegger/nvim-lint'},
     {'nvimtools/none-ls.nvim'},
-    -- Formatter
-    {'mhartington/formatter.nvim'},
     -- Complement
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/vim-vsnip'},
