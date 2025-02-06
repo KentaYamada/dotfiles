@@ -14,7 +14,7 @@ config.automatically_reload_config = true
 -- This is where you actually apply your config choices
 
 -- see: https://wezfurlong.org/wezterm/colorschemes/index.html
-config.color_scheme = 'nordfox'
+config.color_scheme = 'nightfox'
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 15
 
