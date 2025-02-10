@@ -29,4 +29,4 @@ require('basic-configs/color')
 require('plugin-configs/treesitter')
 -- Git
 require('plugin-configs/gitsigns')
-require('plugin-configs/neogit')
+-- require('plugin-configs/neogit')

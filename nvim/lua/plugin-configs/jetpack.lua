@@ -38,7 +38,7 @@ require('jetpack.packer').add {
     {'hrsh7th/cmp-nvim-lsp-document-symbol'},
     {'onsails/lspkind.nvim'},
     -- Git
-    {'TimUntersberger/neogit'},
+    -- {'TimUntersberger/neogit'},
     {'lewis6991/gitsigns.nvim'},
 }
 vim.cmd('filetype plugin indent on')
