@@ -18,7 +18,6 @@ require('plugin-configs/nvim-tree-lua')
 -- Status line plugin
 require('plugin-configs/lualine')
 -- Language server plugin
--- source ~/.config/nvim/plugins/coc.vim
 require('plugin-configs/lsp')
 -- Complement
 require('plugin-configs/complement')
