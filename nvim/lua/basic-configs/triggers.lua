@@ -4,13 +4,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-augroup('CakePHPCmd', {clear = true})
-autocmd({'BufNewFile', 'BufRead'}, {
-    group = 'CakePHPCmd',
-    pattern = {'*.ctp'},
-    command = 'setfiletype php'
-})
-
 augroup('ConfCmd', {clear = true})
 autocmd({'BufNewFile', 'BufRead'}, {
     group = 'ConfCmd',
