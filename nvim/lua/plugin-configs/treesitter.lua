@@ -1,17 +1,23 @@
+--
+-- treesitter config
+-- see: https://github.com/nvim-treesitter/nvim-treesitter
+--
 local treesitter = require('nvim-treesitter.configs')
+
 treesitter.setup({
     -- A list of parser names, or "all"
     ensure_installed = {
         'c',
         'cpp',
         'css',
+        'csv',
         'javascript',
         'json',
         'lua',
         'html',
         'make',
         'markdown',
-        'php',
+        'rust',
         'sql',
         'tsx',
         'typescript',

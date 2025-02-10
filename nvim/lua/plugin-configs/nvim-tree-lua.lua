@@ -48,7 +48,13 @@ require("nvim-tree").setup({
         folders_first = true,
         sorter = "case_sensitive",
     },
+    update_focused_file = {
+        enable = true,
+        update_root = {
+            enable = true,
+        },
+    }
 })
 
 -- mappings
-vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle, { desc = 'Toggle file explore' })
+vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle, { silent = true, desc = 'Toggle file explore' })

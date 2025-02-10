@@ -4,7 +4,7 @@ vim.cmd('packadd vim-jetpack')
 -- see: https://github.com/tani/vim-jetpack#modern-packernvim-paqnvim-style-1
 require('jetpack.packer').add {
     -- Bootstrap
-    {'tani/vim-jetpack', opt = true},
+    {'tani/vim-jetpack', as = 'jetpack', opt = true},
     -- Utility
     {'nvim-lua/plenary.nvim'},
     {'sindrets/diffview.nvim'},
@@ -38,7 +38,6 @@ require('jetpack.packer').add {
     {'hrsh7th/cmp-nvim-lsp-document-symbol'},
     {'onsails/lspkind.nvim'},
     -- Git
-    -- {'TimUntersberger/neogit'},
     {'lewis6991/gitsigns.nvim'},
 }
 vim.cmd('filetype plugin indent on')
