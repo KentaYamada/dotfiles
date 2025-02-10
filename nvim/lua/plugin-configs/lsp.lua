@@ -38,6 +38,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>f', function()
           vim.lsp.buf.format { async = true }
         end, opts)
+
+        -- Format onSave if none-ls not supported
+        vim.api.nvim_create_autocmd('BufWritePre', {
+            pattern = { "*.rs" },
+            callback =function ()
+                vim.lsp.buf.format({
+                    buffer = ev.buf,
+                    async = false,
+                })
+            end,
+        })
     end
 })
 vim.diagnostic.config({
