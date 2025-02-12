@@ -5,10 +5,13 @@
 -- Basic configs
 vim.cmd('source ' .. '~/.config/nvim/configs/environment.vim')
 vim.cmd('source ' .. '~/.config/nvim/configs/options.vim')
+
 require('basic-configs/options')
 require('basic-configs/keymaps')
 require('basic-configs/commands')
 require('basic-configs/triggers')
+
+-- Extensions
 -- Package manager
 require('plugin-configs/jetpack')
 -- Fuzzy finder
