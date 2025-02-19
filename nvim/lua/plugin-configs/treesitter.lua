@@ -6,22 +6,27 @@ local treesitter = require('nvim-treesitter.configs')
 
 treesitter.setup({
     -- A list of parser names, or "all"
+    -- See parsers: https://github.com/tree-sitter/tree-sitter/wiki/List-of-parsers
     ensure_installed = {
         'c',
         'cpp',
         'css',
         'csv',
+        'dockerfile',
         'javascript',
         'json',
         'lua',
         'html',
         'make',
         'markdown',
+        'python',
         'rust',
         'sql',
         'tsx',
         'typescript',
-        'vim'
+        'vim',
+        'vimdoc',
+        'yaml',
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
