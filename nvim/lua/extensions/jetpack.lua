@@ -40,5 +40,7 @@ require('jetpack.packer').add {
     {'onsails/lspkind.nvim'},
     -- Git
     {'lewis6991/gitsigns.nvim'},
+    -- Rust
+    {'saecki/crates.nvim', tag = 'stable'},
 }
 vim.cmd('filetype plugin indent on')

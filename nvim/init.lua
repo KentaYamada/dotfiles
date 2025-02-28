@@ -6,29 +6,31 @@
 vim.cmd('source ' .. '~/.config/nvim/configs/environment.vim')
 vim.cmd('source ' .. '~/.config/nvim/configs/options.vim')
 
-require('basic-configs/options')
-require('basic-configs/keymaps')
-require('basic-configs/commands')
-require('basic-configs/triggers')
+require('base/options')
+require('base/keymaps')
+require('base/commands')
+require('base/triggers')
 
 -- Extensions
 -- Package manager
-require('plugin-configs/jetpack')
+require('extensions/jetpack')
 -- Fuzzy finder
-require('plugin-configs/telescope')
+require('extensions/telescope')
 -- File explore
-require('plugin-configs/nvim-tree-lua')
+require('extensions/nvim-tree-lua')
 -- Status line plugin
-require('plugin-configs/lualine')
+require('extensions/lualine')
 -- Language server plugin
-require('plugin-configs/lsp')
+require('extensions/lsp')
 -- Complement
-require('plugin-configs/complement')
+require('extensions/complement')
 -- Formatter
-require('plugin-configs/none-ls')
+require('extensions/none-ls')
 -- Colorscheme
-require('basic-configs/color')
+require('base/color')
 -- Syntax color
-require('plugin-configs/treesitter')
+require('extensions/treesitter')
 -- Git
-require('plugin-configs/gitsigns')
+require('extensions/gitsigns')
+-- Rust
+require('extensions/crates')
