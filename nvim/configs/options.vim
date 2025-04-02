@@ -14,7 +14,6 @@
 " エンコード設定
 set encoding=utf-8
 set fileencoding=utf-8
-set termencoding=utf-8
 set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 set fileformats=unix,dos,mac
 
