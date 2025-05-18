@@ -3,7 +3,6 @@
 -- Package manager (https://github.com/williamboman/mason.nvim)
 -- local lspconfig = require('lspconfig')
 local mason = require('mason')
-local mason_lspconfig = require('mason-lspconfig')
 
 local ensure_installed = {
     'clangd',
@@ -16,13 +15,6 @@ local ensure_installed = {
 }
 
 mason.setup()
-
-mason_lspconfig.setup({
-    ---@type boolean
-    automatic_installation = true,
-    ---@type string[]
-    ensure_installed = ensure_installed,
-})
 
 vim.lsp.config('*', {
     capabilities = require('cmp_nvim_lsp').default_capabilities()
