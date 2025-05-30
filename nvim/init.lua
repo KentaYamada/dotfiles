@@ -21,8 +21,7 @@ require('extensions/nvim-tree-lua')
 -- Status line plugin
 require('extensions/lualine')
 -- Language server plugin
--- require('extensions/lsp')
-require('extensions/lsp_v2')
+require('extensions/lsp')
 -- Complement
 require('extensions/complement')
 -- Formatter

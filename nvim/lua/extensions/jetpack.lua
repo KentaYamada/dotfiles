@@ -24,9 +24,9 @@ require('jetpack.packer').add {
     },
     {'delphinus/vim-firestore', ft = 'firestore'},
     -- LSP
-    {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
+    -- {'neovim/nvim-lspconfig'},
+    -- {'williamboman/mason-lspconfig.nvim'},
     {'nvimtools/none-ls.nvim'},
     -- Complement
     {'hrsh7th/nvim-cmp'},

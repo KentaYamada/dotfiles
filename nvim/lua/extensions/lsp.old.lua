@@ -1,32 +1,11 @@
--- LSP Config
---
--- Package manager (https://github.com/williamboman/mason.nvim)
--- local lspconfig = require('lspconfig')
+-- LSP configuration
+-- See:
+--   https://github.com/neovim/nvim-lspconfig
+--   https://github.com/williamboman/mason.nvim
+--   https://github.com/williamboman/mason-lspconfig.nvim
+local lspconfig = require('lspconfig')
 local mason = require('mason')
-
-local ensure_installed = {
-    'clangd',
-    'eslint',
-    'lua_ls',
-    'pylsp',
-    'rust_analyzer',
-    'ts_ls',
-    'vimls',
-}
-
-mason.setup()
-
-vim.lsp.config('*', {
-    capabilities = require('cmp_nvim_lsp').default_capabilities()
-})
-
-vim.lsp.enable(ensure_installed)
-
-vim.diagnostic.config({
-  underline = true,
-  virtual_text = false,
-  update_in_insert = false,
-})
+local mason_lspconfig = require('mason-lspconfig')
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -63,9 +42,48 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Format onSave if none-ls not supported
         vim.api.nvim_create_autocmd('BufWritePre', {
             pattern = { "*.rs" },
-            callback = function ()
-                vim.lsp.buf.format({ buffer = ev.buf, async = false })
+            callback =function ()
+                vim.lsp.buf.format({
+                    buffer = ev.buf,
+                    async = false,
+                })
             end,
         })
     end
 })
+vim.diagnostic.config({
+  underline = true,
+  virtual_text = false,
+  update_in_insert = false,
+})
+
+mason.setup()
+mason_lspconfig.setup({
+    -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
+    -- This setting has no relation with the `automatic_installation` setting.
+    ---@type string[]
+    ensure_installed = {
+        'clangd',
+        'eslint',
+        'ts_ls',
+        'lua_ls',
+        'vimls'
+    },
+
+    -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
+    -- This setting has no relation with the `ensure_installed` setting.
+    -- Can either be:
+    --   - false: Servers are not automatically installed.
+    --   - true: All servers set up via lspconfig are automatically installed.
+    --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
+    --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
+    ---@type boolean
+    automatic_installation = false,
+})
+
+-- 補完時にLSPが効くようにする
+mason_lspconfig.setup_handlers({ function(server_name)
+    local cmplsp = require('cmp_nvim_lsp')
+    local capabilities = cmplsp.default_capabilities()
+    lspconfig[server_name].setup({ capabilities = capabilities })
+end })
