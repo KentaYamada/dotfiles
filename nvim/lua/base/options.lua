@@ -70,3 +70,6 @@ vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
 vim.opt.mouse = '' -- disable mouse
 vim.opt.backspace = { 'indent', 'eol', 'start' }
 vim.opt.visualbell = false
+
+vim.g.loaded_perl_provider = 0 -- disable perl provider
+vim.g.loaded_ruby_provider = 0 -- disable ruby provider
