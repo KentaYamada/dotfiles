@@ -6,8 +6,7 @@
 require('core/options')
 require('core/keymaps')
 require('core/commands')
-
-require('base/triggers')
+require('core/triggers')
 
 -- Extensions
 -- Package manager
