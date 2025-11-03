@@ -15,7 +15,6 @@ vim.keymap.set('i', '<Left>', '<Nop>', { noremap = true })
 vim.keymap.set('i', '<Right>', '<Nop>', { noremap = true })
 
 -- normal mode mappings
-vim.keymap.set('n', '<leader><leader>', ':source $MYVIMRC<CR>', { noremap = true, silent = true, desc = 'init.lua再読み込み' })
 vim.keymap.set('n', '<leader>re', ':%s;\\<<C-R><C-W>\\>;g<Left><Left>;', { noremap = true, silent = true, desc = 'カーソルにある単語を置換'  })
 vim.keymap.set('n', '<ESC><ESC>', ':noh<CR>', { noremap = true, silent = true, desc = 'ハイライト解除' })
 vim.keymap.set('n', '+', '<C-a>', { noremap = true, desc = 'インクリメント' })
@@ -29,6 +28,19 @@ vim.keymap.set('n', 'tnw', ':<C-u>tabnew<CR>', { noremap = true, silent = true, 
 vim.keymap.set('n', 'tc', ':<C-u>tabclose<CR>', { noremap = true, silent = true, desc = 'タブを閉じる' })
 vim.keymap.set('n', 'tn', 'gt', { noremap = true, silent = true, desc = '次のタブへ移動' })
 vim.keymap.set('n', 'tp', 'gT', { noremap = true, silent = true, desc = '前のタブへ移動' })
+
+-- reload `init.lua`
+local function reload_my_conf()
+  for name,_ in pairs(package.loaded) do
+    if name:match('^user') or name:match('^plugins') then
+      package.loaded[name] = nil
+    end
+  end
+  dofile(vim.env.MYVIMRC)
+  vim.notify("`init.lua` reloaded!", vim.log.levels.INFO)
+end
+
+vim.keymap.set('n', '<leader><leader>', reload_my_conf, { noremap = true, silent = true, desc = 'init.lua再読み込み' })
 
 -- terminal mode mappings
 vim.keymap.set('t', '<ESC>', '<C-\\><C-n>', { desc = 'ノーマルモードにする(terminal mode)' })
