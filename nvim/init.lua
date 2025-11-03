@@ -8,6 +8,7 @@ require('core/keymaps')
 require('core/commands')
 require('core/triggers')
 
+
 -- Extensions
 -- Package manager
 require('extensions/jetpack')
@@ -23,11 +24,13 @@ require('extensions/lsp')
 require('extensions/complement')
 -- Formatter
 require('extensions/none-ls')
--- Colorscheme
-require('base/color')
 -- Syntax color
 require('extensions/treesitter')
 -- Git
 require('extensions/gitsigns')
 -- Rust
 require('extensions/crates')
+
+-- Plugins
+-- color schema
+require("plugins/colorscheme")

@@ -18,6 +18,7 @@ require('jetpack.packer').add {
     {'nvim-lualine/lualine.nvim'},
     -- Colorscheme
     {'EdenEast/nightfox.nvim'},
+    {"rebelot/kanagawa.nvim"},
     -- Syntax
     {'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
