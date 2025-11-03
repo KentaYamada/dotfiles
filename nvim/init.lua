@@ -2,13 +2,11 @@
 -- load lua file: require('module_name')
 -- load vimscript file: vim.cmd('source ' .. {filepath})
 
--- Basic configs
-vim.cmd('source ' .. '~/.config/nvim/configs/environment.vim')
-
+-- Core
 require('core/options')
 require('core/keymaps')
+require('core/commands')
 
-require('base/commands')
 require('base/triggers')
 
 -- Extensions
