@@ -16,8 +16,6 @@ require('extensions/jetpack')
 require('extensions/telescope')
 -- File explore
 require('extensions/nvim-tree-lua')
--- Status line plugin
-require('extensions/lualine')
 -- Language server plugin
 require('extensions/lsp')
 -- Complement
@@ -32,5 +30,5 @@ require('extensions/gitsigns')
 require('extensions/crates')
 
 -- Plugins
--- color schema
 require("plugins/colorscheme")
+require("plugins/statusline")
