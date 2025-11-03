@@ -6,7 +6,8 @@
 vim.cmd('source ' .. '~/.config/nvim/configs/environment.vim')
 
 require('core/options')
-require('base/keymaps')
+require('core/keymaps')
+
 require('base/commands')
 require('base/triggers')
 
