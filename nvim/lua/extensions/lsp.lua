@@ -24,6 +24,17 @@ vim.lsp.config('*', {
     capabilities = require('cmp_nvim_lsp').default_capabilities()
 })
 
+-- rustのlinterを`clippy`を使う
+vim.lsp.config('rust_analyzer', {
+    settings = {
+        ['rust_analyzer'] = {
+            check = {
+                command = 'clippy',
+            }
+        }
+    }
+})
+
 vim.lsp.enable(ensure_installed)
 
 vim.diagnostic.config({
