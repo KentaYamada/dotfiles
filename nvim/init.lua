@@ -4,9 +4,8 @@
 
 -- Basic configs
 vim.cmd('source ' .. '~/.config/nvim/configs/environment.vim')
-vim.cmd('source ' .. '~/.config/nvim/configs/options.vim')
 
-require('base/options')
+require('core/options')
 require('base/keymaps')
 require('base/commands')
 require('base/triggers')
