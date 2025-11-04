@@ -22,8 +22,6 @@ require('extensions/lsp')
 require('extensions/complement')
 -- Formatter
 require('extensions/none-ls')
--- Syntax color
-require('extensions/treesitter')
 -- Git
 require('extensions/gitsigns')
 -- Rust
@@ -32,3 +30,4 @@ require('extensions/crates')
 -- Plugins
 require("plugins/colorscheme")
 require("plugins/statusline")
+require("plugins.treesitter")

@@ -21,6 +21,7 @@ require('jetpack.packer').add {
     {"rebelot/kanagawa.nvim"},
     -- Syntax
     {'nvim-treesitter/nvim-treesitter',
+      branch = 'main',
       run = ':TSUpdate',
     },
     {'delphinus/vim-firestore', ft = 'firestore'},
