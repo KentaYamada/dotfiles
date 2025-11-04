@@ -29,6 +29,7 @@ require('jetpack.packer').add {
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
     {'nvimtools/none-ls.nvim'},
+    {'stevearc/conform.nvim'},
 
     {'hrsh7th/nvim-cmp'},
     {'hrsh7th/vim-vsnip'},

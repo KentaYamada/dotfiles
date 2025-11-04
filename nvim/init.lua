@@ -3,25 +3,24 @@
 -- load vimscript file: vim.cmd('source ' .. {filepath})
 
 -- Core
-require('core/options')
-require('core/keymaps')
-require('core/commands')
-require('core/triggers')
-
+require("core/options")
+require("core/keymaps")
+require("core/commands")
+require("core/triggers")
 
 -- Extensions
 -- Package manager
-require('extensions/jetpack')
+require("extensions/jetpack")
 -- File explore
-require('extensions/nvim-tree-lua')
+require("extensions/nvim-tree-lua")
 -- Complement
-require('extensions/complement')
+require("extensions/complement")
 -- Formatter
-require('extensions/none-ls')
+-- require("extensions/none-ls")
 -- Git
-require('extensions/gitsigns')
+require("extensions/gitsigns")
 -- Rust
-require('extensions/crates')
+require("extensions/crates")
 
 -- Plugins
 require("plugins/colorscheme")
@@ -29,3 +28,4 @@ require("plugins/statusline")
 require("plugins/treesitter")
 require("plugins/telescope")
 require("plugins/lsp")
+require("plugins/formatter")
