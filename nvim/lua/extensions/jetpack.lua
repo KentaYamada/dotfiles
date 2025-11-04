@@ -25,8 +25,8 @@ require('jetpack.packer').add {
       run = ':TSUpdate',
     },
 
-    {'williamboman/mason.nvim'},
     {'neovim/nvim-lspconfig'},
+    {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
     {'nvimtools/none-ls.nvim'},
 
@@ -38,9 +38,10 @@ require('jetpack.packer').add {
     {'hrsh7th/cmp-cmdline'},
     {'hrsh7th/cmp-nvim-lsp-signature-help'},
     {'hrsh7th/cmp-nvim-lsp-document-symbol'},
-
     {'onsails/lspkind.nvim'},
+
     {'lewis6991/gitsigns.nvim'},
+
     {'saecki/crates.nvim', tag = 'stable'},
     {'delphinus/vim-firestore', ft = 'firestore'},
 }

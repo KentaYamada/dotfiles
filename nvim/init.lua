@@ -14,8 +14,6 @@ require('core/triggers')
 require('extensions/jetpack')
 -- File explore
 require('extensions/nvim-tree-lua')
--- Language server plugin
-require('extensions/lsp')
 -- Complement
 require('extensions/complement')
 -- Formatter
@@ -30,3 +28,4 @@ require("plugins/colorscheme")
 require("plugins/statusline")
 require("plugins/treesitter")
 require("plugins/telescope")
+require("plugins/lsp")
