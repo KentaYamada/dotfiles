@@ -15,8 +15,6 @@ require("extensions/jetpack")
 require("extensions/nvim-tree-lua")
 -- Complement
 require("extensions/complement")
--- Formatter
--- require("extensions/none-ls")
 -- Git
 require("extensions/gitsigns")
 -- Rust
