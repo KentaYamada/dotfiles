@@ -12,8 +12,6 @@ require('core/triggers')
 -- Extensions
 -- Package manager
 require('extensions/jetpack')
--- Fuzzy finder
-require('extensions/telescope')
 -- File explore
 require('extensions/nvim-tree-lua')
 -- Language server plugin
@@ -30,4 +28,5 @@ require('extensions/crates')
 -- Plugins
 require("plugins/colorscheme")
 require("plugins/statusline")
-require("plugins.treesitter")
+require("plugins/treesitter")
+require("plugins/telescope")
