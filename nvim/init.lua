@@ -15,14 +15,13 @@ require("extensions/jetpack")
 require("extensions/nvim-tree-lua")
 -- Git
 require("extensions/gitsigns")
--- Rust
-require("extensions/crates")
 
 -- Plugins
 require("plugins.colorscheme")
 require("plugins.statusline")
 require("plugins.treesitter")
 require("plugins.telescope")
+require("plugins.crates")
 require("plugins.lsp")
 require("plugins.formatter")
 require("plugins.nvim-cmp")
