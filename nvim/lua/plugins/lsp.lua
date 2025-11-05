@@ -16,19 +16,13 @@ local servers = {
 	"ts_ls",
 	"vimls",
 }
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 mason.setup()
-
 mason_lspconfig.setup({
 	ensure_installed = servers,
 })
 
-vim.lsp.config("*", { capabilities = capabilities })
-
 -- Lua (Neovim dev friendly)
 vim.lsp.config("lua_ls", {
-	capabilities = capabilities,
 	filetypes = { "lua" },
 	settings = {
 		Lua = {
@@ -41,7 +35,6 @@ vim.lsp.config("lua_ls", {
 
 -- Rust
 vim.lsp.config("rust_analyzer", {
-	capabilities = capabilities,
 	filetypes = { "rust" },
 	settings = {
 		["rust_analyzer"] = {

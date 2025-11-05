@@ -13,17 +13,16 @@ require("core/triggers")
 require("extensions/jetpack")
 -- File explore
 require("extensions/nvim-tree-lua")
--- Complement
-require("extensions/complement")
 -- Git
 require("extensions/gitsigns")
 -- Rust
 require("extensions/crates")
 
 -- Plugins
-require("plugins/colorscheme")
-require("plugins/statusline")
-require("plugins/treesitter")
-require("plugins/telescope")
-require("plugins/lsp")
-require("plugins/formatter")
+require("plugins.colorscheme")
+require("plugins.statusline")
+require("plugins.treesitter")
+require("plugins.telescope")
+require("plugins.lsp")
+require("plugins.formatter")
+require("plugins.nvim-cmp")
