@@ -66,6 +66,7 @@ local config = {
 		{ name = "path" },
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "luasnip" },
+		{ name = "crates" },
 	}, {
 		{ name = "buffer" },
 	}),
