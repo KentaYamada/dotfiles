@@ -1,10 +1,11 @@
 # Neovim configurations
-## [WIP] Directory structure
+## Directory structure
 ``` text
 ~/.config/nvim/
   |-- init.lua (エントリポイント)
-  |-- core (Neovim本体の設定)
-  |-- plugins (プラグインの設定)
+  |-- lua/
+      |-- core (Neovim本体の設定)
+      |-- plugins (プラグインの設定)
 ```
 
 ## セットアップ
