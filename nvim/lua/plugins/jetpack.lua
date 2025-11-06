@@ -41,5 +41,6 @@ require("jetpack.packer").add({
 
   { "saecki/crates.nvim", tag = "stable" },
   { "delphinus/vim-firestore", ft = "firestore" },
+  { "OXY2DEV/markview.nvim" },
 })
 vim.cmd("filetype plugin indent on")
