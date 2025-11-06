@@ -95,3 +95,7 @@ if vim.fn.executable("rg") == 1 then
   vim.opt.grepprg = "rg --vimgrep --smart-case --hiden"
   vim.opt.grepformat = { "%f:%l:%c:%m" }
 end
+
+-- `netrw`を無効化
+vim.api.nvim_set_var("loaded_netrw", 1)
+vim.api.nvim_set_var("loaded_netrwPlugin", 1)

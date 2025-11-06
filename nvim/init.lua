@@ -1,6 +1,7 @@
+--
 -- init.lua
--- load lua file: require('module_name')
--- load vimscript file: vim.cmd('source ' .. {filepath})
+-- Load configrations
+--
 
 -- Core
 require("core/options")
@@ -8,15 +9,12 @@ require("core/keymaps")
 require("core/commands")
 require("core/triggers")
 
--- Extensions
--- File explore
-require("extensions/nvim-tree-lua")
-
 -- Plugins
 require("plugins.jetpack")
 require("plugins.colorscheme")
 require("plugins.statusline")
 require("plugins.treesitter")
+require("plugins.file-browser")
 require("plugins.telescope")
 require("plugins.crates")
 require("plugins.lsp")
