@@ -9,12 +9,11 @@ require("core/commands")
 require("core/triggers")
 
 -- Extensions
--- Package manager
-require("extensions/jetpack")
 -- File explore
 require("extensions/nvim-tree-lua")
 
 -- Plugins
+require("plugins.jetpack")
 require("plugins.colorscheme")
 require("plugins.statusline")
 require("plugins.treesitter")
