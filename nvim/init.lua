@@ -13,8 +13,6 @@ require("core/triggers")
 require("extensions/jetpack")
 -- File explore
 require("extensions/nvim-tree-lua")
--- Git
-require("extensions/gitsigns")
 
 -- Plugins
 require("plugins.colorscheme")
@@ -25,3 +23,4 @@ require("plugins.crates")
 require("plugins.lsp")
 require("plugins.formatter")
 require("plugins.nvim-cmp")
+require("plugins.gitsigns")
