@@ -50,6 +50,8 @@ vim.keymap.set("n", "tn", "gt", { noremap = true, silent = true, desc = "次の�
 vim.keymap.set("n", "tp", "gT", { noremap = true, silent = true, desc = "前のタブへ移動" })
 
 -- insert mode
+vim.keymap.set("i", "p", "]p", { noremap = true })
+vim.keymap.set("i", "P", "]P", { noremap = true })
 vim.keymap.set("i", "(", "()<LEFT>", { noremap = true })
 vim.keymap.set("i", "{", "{}<LEFT>", { noremap = true })
 vim.keymap.set("i", "{<Enter>", "{}<Left><CR><ESC><S-o>", { noremap = true })
