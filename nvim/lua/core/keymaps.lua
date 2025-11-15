@@ -48,8 +48,8 @@ vim.keymap.set("n", "tnw", ":<C-u>tabnew<CR>", { noremap = true, silent = true, 
 vim.keymap.set("n", "tc", ":<C-u>tabclose<CR>", { noremap = true, silent = true, desc = "タブを閉じる" })
 vim.keymap.set("n", "tn", "gt", { noremap = true, silent = true, desc = "次のタブへ移動" })
 vim.keymap.set("n", "tp", "gT", { noremap = true, silent = true, desc = "前のタブへ移動" })
-vim.keymap.set("n", "p", "]p", { noremap = true })
-vim.keymap.set("n", "P", "]P", { noremap = true })
+vim.keymap.set("n", "p", "]p`]", { noremap = true })
+vim.keymap.set("n", "P", "]P`]", { noremap = true })
 
 -- insert mode
 vim.keymap.set("i", "(", "()<LEFT>", { noremap = true })
