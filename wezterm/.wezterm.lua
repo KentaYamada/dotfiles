@@ -77,4 +77,11 @@ wezterm.on("update-right-status", function(window, pane)
 	}))
 end)
 
+local mux = wezterm.mux
+wezterm.on("gui-startup", function(cmd)
+	-- 起動時に最大サイズで表示
+	local _tab, _pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+end)
+
 return config
