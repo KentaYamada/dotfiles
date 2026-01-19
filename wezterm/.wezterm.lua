@@ -48,6 +48,10 @@ config.window_background_gradient = {
 	colors = { "#000000" },
 }
 
+-- for linux
+config.front_end = "OpenGL"
+config.enable_wayland = false
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
 	local background = "#5c6d74"
 	local foreground = "#FFFFFF"
