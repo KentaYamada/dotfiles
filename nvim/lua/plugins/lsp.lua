@@ -8,7 +8,7 @@ local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local servers = {
   "clangd",
-  "eslint_d",
+  "eslint",
   "lua_ls",
   "pylsp",
   "rust_analyzer",
