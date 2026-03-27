@@ -16,3 +16,6 @@ fi
 if [[ -e $HOME/.alias ]]; then
     source $HOME/.alias
 fi
+
+# fzf
+source <(fzf --zsh)
