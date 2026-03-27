@@ -49,6 +49,8 @@ alias greflesh='git fetch origin && git remote prune origin'
 alias gullr='git pull --rebase'
 alias gpu='git push --set-upstream'
 
+alias dot="vim ~/dotfiles"
+
 # zsh prezto
 alias update-prezto='cd $ZPREZTODIR && git pull && git submodule sync --recursive && git submodule update --init --recursive'
 
