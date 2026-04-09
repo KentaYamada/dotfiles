@@ -60,8 +60,8 @@ vim.lsp.inlay_hint.enable(true)
 
 -- Key mappings
 -- Global diagnostic key mappings
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", vim.diagnostic.jump({ count = -1, float = true }))
+vim.keymap.set("n", "]d", vim.diagnostic.jump({ count = 1, float = true }))
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
