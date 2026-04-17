@@ -16,8 +16,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -pv'
 alias grep='grep --color=auto'
-alias reboot='sudo reboot'
-alias shutdown='sudo shutdown -h now'
 
 case "${OSTYPE}" in
 darwin*)
@@ -35,19 +33,9 @@ alias g='git'
 alias ga='git add'
 alias gaa='git add .'
 alias gap='git add -p'
-alias gcm='git commit -m'
-alias gbr='git branch'
-alias gbrr='git branch --remote'
-alias gbrm='git branch -m'
-alias gbrd='git branch -d'
-alias gbrdd'git branch -D'
-alias gdff='git diff'
 alias gl='git log --graph --decorate --oneline'
 alias gst='git status --short --branch'
-alias gcp='git cherry-pick'
-alias greflesh='git fetch origin && git remote prune origin'
-alias gullr='git pull --rebase'
-alias gpu='git push --set-upstream'
+alias greflesh='git fetch origin && git remote prune origin && git remote prune origin'
 
 alias dot="vim ~/dotfiles"
 
