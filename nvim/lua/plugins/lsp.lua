@@ -21,18 +21,6 @@ mason_lspconfig.setup({
   ensure_installed = servers,
 })
 
--- Lua (Neovim dev friendly)
-vim.lsp.config("lua_ls", {
-  filetypes = { "lua" },
-  settings = {
-    Lua = {
-      diagnostics = { globals = { "vim" } },
-      workspace = { checkThirdParty = false },
-      telementry = { enable = true },
-    },
-  },
-})
-
 -- Rust
 vim.lsp.config("rust_analyzer", {
   filetypes = { "rust" },
@@ -101,8 +89,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Auto format on save
     if
-      not client:supports_method("textDocument/willSaveWaitUntil")
-      and client:supports_method("textDocument/formatting")
+        not client:supports_method("textDocument/willSaveWaitUntil")
+        and client:supports_method("textDocument/formatting")
     then
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = vim.api.nvim_create_augroup("FormatOnSave", { clear = false }),
