@@ -9,7 +9,6 @@ return {
     ["rust-analyzer"] = {
       check = {
         command = "clippy",
-        extraArgs = { "--", "-D", "warnings" },
       },
     },
   },
