@@ -12,7 +12,6 @@ require("jetpack.packer").add({
   { "nvim-telescope/telescope.nvim", tag = "0.1.8" },
   { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
   { "nvim-telescope/telescope-frecency.nvim", version = "*" },
-  { "nvim-telescope/telescope-file-browser.nvim" },
   { "nvim-telescope/telescope-ui-select.nvim" },
 
   { "nvim-tree/nvim-tree.lua" },

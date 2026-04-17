@@ -30,11 +30,6 @@ local config = {
     frecency = {
       enable_prompt_mappings = true,
     },
-    file_browser = {
-        theme = "ivy",
-        -- disables netrw and use telescope-file-browser in its place
-        hijack_netrw = true,
-    },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown({}),
     },
@@ -43,13 +38,11 @@ local config = {
 telescope.setup(config)
 telescope.load_extension("fzf")
 telescope.load_extension("frecency")
-telescope.load_extension("file_browser")
 telescope.load_extension("ui-select")
-
 
 -- key mapping
 -- pickers: https://github.com/nvim-telescope/telescope.nvim#pickers
-vim.keymap.set("n", "<leader>o", function ()
+vim.keymap.set("n", "<leader>o", function()
   builtin.find_files({ hidden = true })
 end, { noremap = true, silent = true, desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>g", builtin.live_grep, { noremap = true, silent = true, desc = "Telescope live grep" })
@@ -59,11 +52,3 @@ vim.keymap.set("n", "<leader>d", builtin.diagnostics, { noremap = true, silent =
 vim.keymap.set("n", "<leader>r", function()
   telescope.extensions.frecency.frecency()
 end, { noremap = true, silent = true, desc = "Telescope find recent files" })
-
--- 操作方法覚えるまではこのままで
-vim.keymap.set("n", "<leader>fb", function ()
-  telescope.extensions.file_browser.file_browser({
-    hidden = true,
-    grouped = true,
-  })
-end, { noremap = true, silent = true, desc = "Toggle file browser" })
