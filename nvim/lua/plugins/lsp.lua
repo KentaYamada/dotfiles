@@ -78,8 +78,11 @@ end
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
+local lsp_group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true })
+local format_group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true })
+
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  group = lsp_group,
   callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
 
@@ -92,7 +95,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         and client:supports_method("textDocument/formatting")
     then
       vim.api.nvim_create_autocmd("BufWritePre", {
-        group = vim.api.nvim_create_augroup("FormatOnSave", { clear = false }),
+        group = format_group,
         buffer = ev.buf,
         callback = function()
           vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 2000, async = false })
