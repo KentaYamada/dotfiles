@@ -21,15 +21,8 @@ mason_lspconfig.setup({
   ensure_installed = servers,
 })
 
--- Rust
-vim.lsp.config("rust_analyzer", {
-  filetypes = { "rust" },
-  settings = {
-    check = { command = "clippy" },
-  },
-})
-
 -- Diagnostic
+-- See: help vim.diagnostic.config
 vim.diagnostic.config({
   serverity_sort = true,
   signs = true,
@@ -52,7 +45,13 @@ end)
 vim.keymap.set("n", "]d", function()
   vim.diagnostic.jump({ count = 1, float = true })
 end)
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+vim.keymap.set("n", "<leader>q", function()
+  vim.diagnostic.setloclist({
+    format = function(diagnostic)
+      return string.format("%s (%s)", diagnostic.message, diagnostic.code)
+    end,
+  })
+end)
 
 -- Configure buffer local mappings.
 -- See `:help vim.lsp.*` for documentation on any of the below functions
