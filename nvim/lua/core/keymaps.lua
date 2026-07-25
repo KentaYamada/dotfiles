@@ -50,6 +50,7 @@ vim.keymap.set("n", "tn", "gt", { noremap = true, silent = true, desc = "次の�
 vim.keymap.set("n", "tp", "gT", { noremap = true, silent = true, desc = "前のタブへ移動" })
 vim.keymap.set("n", "p", "]p`]", { noremap = true })
 vim.keymap.set("n", "P", "]P`]", { noremap = true })
+vim.keymap.set("n", "<leader>bo", "<cmd>%bd | e# | bd#<CR>", { desc = "Clear buffers without current buffer" })
 
 -- insert mode
 vim.keymap.set("i", "(", "()<LEFT>", { noremap = true })
