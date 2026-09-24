@@ -9,15 +9,16 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-config.automatically_reload_config = true
-
 -- This is where you actually apply your config choices
 
 -- see: https://wezfurlong.org/wezterm/colorschemes/index.html
--- config.color_scheme = "nightfox"
+-- config.color_scheme = "Kanagawa Dragon (Gogh)"
+config.automatically_reload_config = true
 config.color_scheme = "Kanagawa (Gogh)"
 config.window_background_opacity = 0.8
 config.macos_window_background_blur = 15
+
+config.force_reverse_video_cursor = true
 
 -- see: https://wezfurlong.org/wezterm/config/fonts.html#troubleshooting-fonts
 -- see: wezterm ls-fonts --list-system
@@ -28,8 +29,8 @@ config.font = wezterm.font_with_fallback({
   "Noto Color Emoji",  -- Linux
   "Apple Color Emoji", -- macOS
 })
-config.font_size = 14.0
-config.line_height = 1.2
+config.font_size = 15.0
+config.line_height = 1.4
 
 config.use_ime = true
 
