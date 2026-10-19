@@ -21,6 +21,11 @@ end
 -- Hook event before run `vim.pack.add`
 vim.api.nvim_create_autocmd("PackChanged", { callback = onPackChanged })
 
+-- Update package command
+vim.api.nvim_create_user_command("PackUpdate", function()
+  vim.pack.update()
+end, { desc = "Update packages" })
+
 -- GitHub repository URLの生成
 -- @param name repository name
 -- @return GitHub repository URL
