@@ -8,9 +8,10 @@ require("core/options")
 require("core/keymaps")
 require("core/commands")
 require("core/triggers")
+require("core/plugin-manager")
 
 -- Plugins
-require("plugins.jetpack")
+-- require("plugins.jetpack")
 require("plugins.colorscheme")
 require("plugins.statusline")
 require("plugins.treesitter")
