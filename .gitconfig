@@ -10,3 +10,6 @@
 	ff = only
 [pager]
 	branch = false
+
+[include]
+  path = ~/.gitconfig.local

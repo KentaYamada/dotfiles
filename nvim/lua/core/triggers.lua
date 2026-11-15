@@ -22,6 +22,11 @@ autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "*.ts" },
   command = "setfiletype typescript",
 })
+autocmd({ "BufNewFile", "BufRead" }, {
+  group = "CmdFt",
+  pattern = { ".gitconfig.*" },
+  command = "setfiletype gitconfig",
+})
 
 local autoResized = augroup("AutoResized", { clear = true })
 autocmd("VimResized", {
