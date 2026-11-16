@@ -1,15 +1,25 @@
 [user]
-	name = yamaken
-	email = knt.yamada.800@gmail.com
+  name = yamaken
+  email = knt.yamada.800@gmail.com
 
 [core]
-	editor = nvim
+  editor = nvim
 
 [pull]
-	rebase = false
-	ff = only
+  rebase = false
+  ff = only
+
 [pager]
-	branch = false
+  branch = false
+
+[gpg]
+  format = ssh
+
+[commit]
+    gpgsign = true
+
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
 
 [include]
   path = ~/.gitconfig.local
